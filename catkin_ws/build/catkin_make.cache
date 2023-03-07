@@ -1,0 +1,2 @@
+
+-DCATKIN_DEVEL_PREFIX=/home/admin_user/KEEL_ROSMaster/catkin_ws/devel -DCMAKE_INSTALL_PREFIX=/home/admin_user/KEEL_ROSMaster/catkin_ws/install -G Unix Makefiles
