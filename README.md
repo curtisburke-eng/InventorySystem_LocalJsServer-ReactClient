@@ -1,5 +1,6 @@
 # KEEL_ROSMaster
 For use on KEEL Machine Shop Hub Computer
+Changed from use of ROS to general MQTT
 
 # Branch Definitions: 
 main: released version - Used on the deployed (in-use) hardware
