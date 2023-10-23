@@ -32,27 +32,40 @@
         <title>KEEL Shop Inventory</title>
     </head>
 
+    
     <body class="grey lighten-4">
-        <!-------- Navbar -------->
-        <nav class="white z-depth-0">
-        <div class="containter">
-            <a href="/" class="center brand-logo brand-text">KEEL Shop Inventory</a>
-        </div>
-        <ul id="Home" class="center hide-on-small-and-down">
-                <li><a href="/" class="btn brand z-depth-0">Home</a></li>
-        </ul>
-        </nav>
-        
-        <!-------- Content -------->
-        <div class="row">
 
+        <div id="wrapper">
+            <!-------- Navbar -------->
+            <nav class="white z-depth-0">
+                <div class="containter">
+                    <a href="/" class="center brand-logo brand-text">KEEL Shop Inventory</a>
+                </div>
+                <ul id="Home" class="center hide-on-small-and-down">
+                        <li><a href="/" class="btn brand z-depth-0">Home</a></li>
+                </ul>
+            </nav>
             
+            <!-------- Content -------->
+            <div class="container" id="main">
+    
+            </div>
+            
+            <!-------- Footer -------->
+            <footer class="footer">
+                <div class="center grey-text">&copy 2021 KEEL, LLC</div>
+            </footer>
 
         </div>
-    </body>
 
-    <footer class="section">
-        <div class="center grey-text">Copyright 2021 KEEL, LLC</div>
-    </footer>
+        <!-------- Scripts -------->
+
+        <!-- we require manually loading  before the tmplit system handlebars -->
+        <script src="handlebars/dist/handlebars.min.js" ></script>
+
+        <!-- app -->
+        <script src="app/src/app.js"></script>
+
+    </body>
 
 </html>
