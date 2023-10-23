@@ -10,10 +10,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "app": "file:./",
-    "bootstrap": "^3.3.4",
     "handlebars": "*",
-    "jquery": "*",
-    "virtual-keyboard": "^1.30.4"
+    "jquery": "*"
   }
 }
