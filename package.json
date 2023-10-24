@@ -1,0 +1,21 @@
+{
+  "name": "keel_shopmaster",
+  "version": "1.0.0",
+  "description": "For use on KEEL Machine Shop Hub Computer",
+  "type": "module",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/curtisburke-eng/KEEL_ShopMaster.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/curtisburke-eng/KEEL_ShopMaster/issues"
+  },
+  "homepage": "https://github.com/curtisburke-eng/KEEL_ShopMaster#readme"
+}
