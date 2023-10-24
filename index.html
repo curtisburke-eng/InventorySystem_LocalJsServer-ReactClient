@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+        <meta charset="utf-8">
+        <!-- <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" /> -->
+    
+        <!-- Make the entire app run from within the node modules folder -->
+        <base href="./node_modules/">
+    
+        <!-- <link href="bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+        <link href="app/css/main.css" rel="stylesheet"> -->
+    
+        <!-- Compiled and minified CSS -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+        <style type="text/css">
+        .brand {
+            background: #7D7D7D !important;
+        }
+        .brand-text {
+            color: #7d7d7d !important;
+        }
+        form {
+            max-width: 460px;
+            margin: 20px auto;
+            padding: 20px;
+        }
+        </style>
+
+        <title>KEEL Shop Inventory</title>
+    </head>
+
+    
+    <body class="grey lighten-4">
+
+        <div id="wrapper">
+            <!-------- Navbar -------->
+            <nav class="white z-depth-0">
+                <div class="containter">
+                    <a href="/" class="center brand-logo brand-text">KEEL Shop Inventory</a>
+                </div>
+                <ul id="Home" class="center hide-on-small-and-down">
+                        <li><a href="/" class="btn brand z-depth-0">Home</a></li>
+                </ul>
+            </nav>
+            
+            <!-------- Content -------->
+            <div class="container" id="main">
+                
+            </div>
+            
+            <!-------- Footer -------->
+            <footer class="footer">
+                <div class="center grey-text">&copy 2021 KEEL, LLC</div>
+            </footer>
+
+        </div>
+
+        <!-------- Scripts -------->
+
+        <!-- we require manually loading  before the tmplit system handlebars -->
+        <!-- <script src="handlebars/dist/handlebars.min.js" ></script> -->
+
+        
+        <script src="src/app.js"></script>
+
+    </body>
+
+</html>
