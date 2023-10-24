@@ -17,5 +17,9 @@
   "bugs": {
     "url": "https://github.com/curtisburke-eng/KEEL_ShopMaster/issues"
   },
-  "homepage": "https://github.com/curtisburke-eng/KEEL_ShopMaster#readme"
+  "homepage": "https://github.com/curtisburke-eng/KEEL_ShopMaster#readme",
+  "dependencies": {
+    "dotenv": "^16.3.1",
+    "mysql2": "^3.6.2"
+  }
 }
