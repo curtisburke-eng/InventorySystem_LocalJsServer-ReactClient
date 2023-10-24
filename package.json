@@ -20,6 +20,10 @@
   "homepage": "https://github.com/curtisburke-eng/KEEL_ShopMaster#readme",
   "dependencies": {
     "dotenv": "^16.3.1",
-    "mysql2": "^3.6.2"
+    "latest": "^0.2.0",
+    "lts": "^1.2.0",
+    "mysql2": "^3.6.2",
+    "n": "^9.2.0",
+    "node": "^21.0.0"
   }
 }
