@@ -7,6 +7,7 @@
 // Use Express to Create a HTTP Server
 import express from 'express'
 const app = express()
+app.use(express.json())
 
 // Use Enviroment vars for easy updating
 import dotenv from 'dotenv'
