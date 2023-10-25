@@ -26,6 +26,18 @@ export async function getBadges() {                                             
     return rows
 }
 
+export async function getBadge(size, color, model) {                                 // GET badges by color
+    const [rows] = await pool.query(`
+    SELECT * 
+    FROM badges
+    WHERE 
+    size_mm = ?
+    AND color = ?
+    AND model = ?
+    `,[size, color, model])
+    return rows
+}
+
 export async function getBadgesBySize(size) {                                   // GET badges by size
     const [rows] = await pool.query(`
     SELECT * 
@@ -50,5 +62,21 @@ export async function getBadgesByModel(model) {                                 
     FROM badges
     WHERE model = ?
     `,[model])
+    return rows
+}
+
+// Create the SQL statements used in the PUT requests
+
+export async function updateBadgeQty(size, color, model, count_onHand,count_onOrder) {                                             // GET all badges
+    const [rows] = await pool.query(`
+    UPDATE badges 
+    SET
+    count_onHand = ?,
+    count_onOrder = ?
+    WHERE
+    size_mm = ?
+    AND color = ?
+    AND model = ?
+    `,[count_onHand,count_onOrder, size, color, model ])
     return rows
 }

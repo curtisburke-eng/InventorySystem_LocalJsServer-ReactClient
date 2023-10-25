@@ -7,14 +7,14 @@
 // Use Express to Create a HTTP Server
 import express from 'express'
 const app = express()
-app.use(express.json())
+app.use(express.json()) // any json http body will be accepted and passed into the req.body object
 
 // Use Enviroment vars for easy updating
 import dotenv from 'dotenv'
 dotenv.config()
 
 // Get functions from database server
-import {getBadges, getBadgesBySize, getBadgesByColor, getBadgesByModel} from './database.js'
+import {getBadges, getBadgesBySize, getBadgesByColor, getBadgesByModel, updateBadgeQty} from './database.js'
 
 // --- Get Request Routes ---
 // GET all badges
@@ -68,6 +68,17 @@ app.get("/badges/XL", async (req,res) => {
     const badges = await getBadgesByModel("XL")
     res.send(badges)
 })
+
+// ------- PUT Request Routes -------
+// Update All badges
+
+// Update single badge
+app.put("/badges", async (req,res) => {
+    const {size, color, model, count_onHand, count_onOrder} = req.body
+    const badges = await updateBadgeQty(size, color, model, count_onHand,count_onOrder)
+    res.status(201).send(badges)
+})
+
 
 // Error Handling
 app.use((err, req, res, next) => {
