@@ -5,7 +5,7 @@
   "type": "module",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev":"npx nodemon app.js"
   },
   "repository": {
     "type": "git",
@@ -20,10 +20,11 @@
   "homepage": "https://github.com/curtisburke-eng/KEEL_ShopMaster#readme",
   "dependencies": {
     "dotenv": "^16.3.1",
-    "latest": "^0.2.0",
-    "lts": "^1.2.0",
+    "express": "^5.0.0-beta.1",
     "mysql2": "^3.6.2",
-    "n": "^9.2.0",
     "node": "^21.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
   }
 }
