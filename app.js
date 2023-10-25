@@ -24,8 +24,8 @@ app.get("/badges", async (req,res) => {
 })
 
 // GET badges by size
-app.get("/badges/21", async (req,res) => {
-    const badges = await getBadgesBySize(21)
+app.get("/badges/20", async (req,res) => {
+    const badges = await getBadgesBySize(20)
     res.send(badges)
 })
 app.get("/badges/22", async (req,res) => {
