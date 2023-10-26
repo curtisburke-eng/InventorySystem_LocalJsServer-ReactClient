@@ -9,6 +9,10 @@ import express from 'express'
 const server = express()
 server.use(express.json()) // any json http body will be accepted and passed into the req.body object
 
+// Use CORS 
+import cors from 'cors'
+server.use(cors())
+
 // Use Enviroment vars for easy updating
 import dotenv from 'dotenv'
 dotenv.config()

@@ -6,7 +6,7 @@
   "main": "js/server.js",
   "scripts": {
     "start": "node js/server.js",
-    "dev":"npx nodemon js/server.js"
+    "dev": "npx nodemon js/server.js"
   },
   "repository": {
     "type": "git",
@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/curtisburke-eng/KEEL_ShopMaster#readme",
   "dependencies": {
+    "cors": "^2.8.5",
     "dotenv": "^16.3.1",
     "express": "^5.0.0-beta.1",
     "mysql2": "^3.6.2",
