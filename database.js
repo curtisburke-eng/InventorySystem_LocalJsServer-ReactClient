@@ -21,12 +21,12 @@ const pool = mysql.createPool({
 
 // Create the SQL statements used in the GET requests
 
-export async function getBadges() {                                             // GET all badges
+export async function getAllBadges() {                                             // GET all badges
     const [rows] = await pool.query("SELECT * FROM badges;")
     return rows
 }
 
-export async function getBadge(size, color, model) {                                 // GET badges by color
+export async function getBadges(size_mm, color, model) {                                 // GET badges by color
     const [rows] = await pool.query(`
     SELECT * 
     FROM badges
@@ -34,16 +34,16 @@ export async function getBadge(size, color, model) {                            
     size_mm = ?
     AND color = ?
     AND model = ?
-    `,[size, color, model])
+    `,[size_mm, color, model])
     return rows
 }
 
-export async function getBadgesBySize(size) {                                   // GET badges by size
+export async function getBadgesBySize(size_mm) {                                   // GET badges by size
     const [rows] = await pool.query(`
     SELECT * 
     FROM badges
     WHERE size_mm = ?
-    `,[size])
+    `,[size_mm])
     return rows
 }
 
@@ -67,7 +67,7 @@ export async function getBadgesByModel(model) {                                 
 
 // Create the SQL statements used in the PUT requests
 
-export async function updateBadgeQty(size, color, model, count_onHand,count_onOrder) {                                             // GET all badges
+export async function updateBadgeQty(size_mm, color, model, count_onHand,count_onOrder) {                                             // GET all badges
     const [rows] = await pool.query(`
     UPDATE badges 
     SET
@@ -77,6 +77,6 @@ export async function updateBadgeQty(size, color, model, count_onHand,count_onOr
     size_mm = ?
     AND color = ?
     AND model = ?
-    `,[count_onHand,count_onOrder, size, color, model ])
+    `,[count_onHand,count_onOrder, size_mm, color, model ])
     return rows
 }
