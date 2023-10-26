@@ -1,11 +1,11 @@
 {
-  "name": "keel_shopmaster",
+  "name": "keel_inventory_server",
   "version": "1.0.0",
-  "description": "For use on KEEL Machine Shop Hub Computer",
+  "description": "NodeJS, Express , & MYSQL server for managing KEEL Inventory",
   "type": "module",
-  "main": "js/app.js",
+  "main": "js/server.js",
   "scripts": {
-    "dev":"npx nodemon js/app.js"
+    "dev":"npx nodemon js/server.js"
   },
   "repository": {
     "type": "git",
