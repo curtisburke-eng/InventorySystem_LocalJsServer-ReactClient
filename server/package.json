@@ -1,0 +1,31 @@
+{
+  "name": "keel_inventory_server",
+  "version": "1.0.0",
+  "description": "NodeJS, Express , & MYSQL server for managing KEEL Inventory",
+  "type": "module",
+  "main": "js/server.js",
+  "scripts": {
+    "start": "node js/server.js",
+    "dev": "npx nodemon js/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/curtisburke-eng/KEEL_ShopMaster.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/curtisburke-eng/KEEL_ShopMaster/issues"
+  },
+  "homepage": "https://github.com/curtisburke-eng/KEEL_ShopMaster#readme",
+  "dependencies": {
+    "dotenv": "^16.3.1",
+    "express": "^5.0.0-beta.1",
+    "mysql2": "^3.6.2",
+    "node": "^21.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  }
+}
