@@ -1,2 +1,2 @@
 # KEEL_Inventory Client
-For use on KEEL Machine Shop Hub Computer
+Frontend Client using Vite, JSX, and React to interface with the backend server.

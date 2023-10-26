@@ -1,2 +1,2 @@
 # KEEL_Inventory Server
-For use on KEEL Machine Shop Hub Computer
+Backend server using Nodejs, Express, and MySQL for managing KEEL product Inventory.

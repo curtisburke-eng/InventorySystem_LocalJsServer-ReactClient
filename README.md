@@ -1,2 +1,2 @@
-# KEEL_ShopMaster
-For use on KEEL Machine Shop Hub Computer
+# KEEL_Inventory
+For use on tracking on-hand and on-order KEEL product Inventory.
