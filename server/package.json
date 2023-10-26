@@ -5,6 +5,7 @@
   "type": "module",
   "main": "js/server.js",
   "scripts": {
+    "start": "node js/server.js",
     "dev":"npx nodemon js/server.js"
   },
   "repository": {
