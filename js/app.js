@@ -33,7 +33,6 @@ app.get("/badges", async (req,res) => {
 // GET badges by size
 app.get("/badges/bySize", async (req,res) => {
     const {size_mm} = req.body
-    console.log(req.headers['content-length'])
     const badges = await getBadgesBySize(size_mm)
     res.status(201).send(badges)
 
