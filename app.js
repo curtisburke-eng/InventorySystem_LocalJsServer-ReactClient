@@ -14,59 +14,43 @@ import dotenv from 'dotenv'
 dotenv.config()
 
 // Get functions from database server
-import {getBadges, getBadgesBySize, getBadgesByColor, getBadgesByModel, updateBadgeQty} from './database.js'
+import {getBadges, getAllBadges, getBadgesBySize, getBadgesByColor, getBadgesByModel, updateBadgeQty} from './database.js'
 
 // --- Get Request Routes ---
 // GET all badges
 app.get("/badges", async (req,res) => {
-    const badges = await getBadges()
-    res.send(badges)
+    if (req.headers['content-length'] != null) {                // If there is information in the body of the request
+        const {size_mm, color, model} = req.body                // Extract that info
+        const badges = await getBadges(size_mm, color, model)   // Use that info for the query
+        res.status(201).send(badges)
+    }
+    else {
+        const badges = await getAllBadges()
+        res.send(badges)
+    }
 })
 
 // GET badges by size
-app.get("/badges/20", async (req,res) => {
-    const badges = await getBadgesBySize(20)
-    res.send(badges)
-})
-app.get("/badges/22", async (req,res) => {
-    const badges = await getBadgesBySize(22)
-    res.send(badges)
-})
-app.get("/badges/24", async (req,res) => {
-    const badges = await getBadgesBySize(24)
-    res.send(badges)
+app.get("/badges/bySize", async (req,res) => {
+    const {size_mm} = req.body
+    console.log(req.headers['content-length'])
+    const badges = await getBadgesBySize(size_mm)
+    res.status(201).send(badges)
+
 })
 
 // GET badges by color
-app.get("/badges/uncoated", async (req,res) => {
-    const badges = await getBadgesByColor("uncoated")
-    res.send(badges)
-})
-app.get("/badges/black", async (req,res) => {
-    const badges = await getBadgesByColor("black")
-    res.send(badges)
-})
-app.get("/badges/red", async (req,res) => {
-    const badges = await getBadgesByColor("red")
-    res.send(badges)
-})
-app.get("/badges/blue", async (req,res) => {
-    const badges = await getBadgesByColor("blue")
-    res.send(badges)
-})
-app.get("/badges/rose", async (req,res) => {
-    const badges = await getBadgesByColor("rose")
-    res.send(badges)
+app.get("/badges/byColor", async (req,res) => {
+    const {color} = req.body
+    const badges = await getBadgesByColor(color)
+    res.status(201).send(badges)
 })
 
-// GET badges by Model
-app.get("/badges/standard", async (req,res) => {
-    const badges = await getBadgesByModel("standard")
-    res.send(badges)
-})
-app.get("/badges/XL", async (req,res) => {
-    const badges = await getBadgesByModel("XL")
-    res.send(badges)
+// GET badges by model
+app.get("/badges/byModel", async (req,res) => {
+    const {model} = req.body
+    const badges = await getBadgesByModel(model)
+    res.status(201).send(badges)
 })
 
 // ------- PUT Request Routes -------
