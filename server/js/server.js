@@ -13,6 +13,10 @@ server.use(express.json()) // any json http body will be accepted and passed int
 import dotenv from 'dotenv'
 dotenv.config()
 
+// Use CORS for security
+import cors from 'cors'
+server.use(cors())
+
 // Get functions from database server
 import {getBadges, getAllBadges, getBadgesBySize, getBadgesByColor, getBadgesByModel, updateBadgeQty} from './database.js'
 
