@@ -3,9 +3,9 @@
   "version": "1.0.0",
   "description": "For use on KEEL Machine Shop Hub Computer",
   "type": "module",
-  "main": "app.js",
+  "main": "js/app.js",
   "scripts": {
-    "dev":"npx nodemon app.js"
+    "dev":"npx nodemon js/app.js"
   },
   "repository": {
     "type": "git",
