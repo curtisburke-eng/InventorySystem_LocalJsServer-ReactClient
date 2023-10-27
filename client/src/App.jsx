@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import './App.css'
+import keelLogo from './assets/KEEL-logo_white_140x.png'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -7,8 +8,8 @@ function App() {
   return (
     <>
       <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
+        <a href="https://shopkeel.us" target="_blank">
+          <img src={keelLogo} className="logo" alt="KEEL Logo" />
         </a>
       </div>
       <h1>Vite + React</h1>
