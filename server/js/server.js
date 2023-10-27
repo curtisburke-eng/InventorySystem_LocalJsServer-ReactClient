@@ -14,8 +14,8 @@ import dotenv from 'dotenv'
 dotenv.config()
 
 // Use CORS for security
-import cors from 'cors'
-server.use(cors())
+//import cors from 'cors'
+//server.use(cors()) // THis allows access from any frontend ... not what I want
 
 // Get functions from database server
 import {getBadges, getAllBadges, getBadgesBySize, getBadgesByColor, getBadgesByModel, updateBadgeQty} from './database.js'
