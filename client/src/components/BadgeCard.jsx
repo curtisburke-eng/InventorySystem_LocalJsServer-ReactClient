@@ -1,7 +1,7 @@
 // Get assets & CSS
 import '../css/main.css'
 
-export default function BadgeCard({id, size_mm, model,color,count_onHand,count_onOrder, onDecreaseOnHand,onIncreaseOnHand,onDecreaseOnOrder,onIncreaseOnOrder}) {
+export default function BadgeCard({id, size_mm, model,color,count_onHand,count_onOrder, onDecreaseOnHand,onIncreaseOnHand,onDecreaseOnOrder,onIncreaseOnOrder, onSave}) {
     const handleDecreaseOnHand = () => {
         onDecreaseOnHand(id)
     }
@@ -14,8 +14,9 @@ export default function BadgeCard({id, size_mm, model,color,count_onHand,count_o
     const handleIncreaseOnOrder = () => {
         onIncreaseOnOrder(id)
     }
-    const handleSave = () => {
-        console.log("Save ")
+    const handleSave = (e) => {
+        e.preventDefault()
+        onSave(id)
     }
 
     return (

@@ -29,6 +29,7 @@ export default function Tab_BadgesByCard() {
     })()
   },[])
 
+  // Handle Local updating of Badges quantities
   const handleDecreaseOnHand = (id) => {
     setBadges(badges.map(badge => {
       if (badge.id === id) {
@@ -66,6 +67,20 @@ export default function Tab_BadgesByCard() {
     }))
   }
 
+  // Save the updated Data to Database
+  // TODO: Map is not what i want to do here. I only want to be returned a single object 
+  // Then I wont have to index it in the request. Do I want filter?
+  const handleSave = async (id) => {
+    const req = badges.map(badge => {
+      if (badge.id === id) {
+        return badge
+      }
+    })
+    console.log(req)
+    const result = await axios.put('http://localhost:8080/badge', req[0])
+   
+  }
+
   // ----- Return Markup with loaded data -----
   return (
     <>
@@ -83,6 +98,7 @@ export default function Tab_BadgesByCard() {
                 onIncreaseOnHand={handleIncreaseOnHand}
                 onDecreaseOnOrder={handleDecreaseOnOrder}
                 onIncreaseOnOrder={handleIncreaseOnOrder}
+                onSave={handleSave}
                 key={badge.id}
                 {...badge} />
               </div>
