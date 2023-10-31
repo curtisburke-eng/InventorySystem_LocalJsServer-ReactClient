@@ -11,8 +11,15 @@
   <body style="background-color:#0A0A0A;"> <!-- IF this color is changed, should also change match /src/css/main.css .brand color -->
     <div id="root" ></div>
     <script type="module" src="/src/main.jsx"></script>
+    
+    <script type="text/javascript" src="/src/css/materialize.min.js"></script>
+  
+    <script>
+      // Initialize Materialize JS elements 
+      document.addEventListener('DOMContentLoaded', function() {
+        M.AutoInit();
+      })
+    </script>
+  
   </body>
-
-  <script type="text/javascript" src="/src/css/materialize.min.js"></script>
-
 </html>

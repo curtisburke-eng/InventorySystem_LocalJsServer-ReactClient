@@ -5,85 +5,68 @@ import axios from 'axios'
 // Get assets & CSS
 import '../css/main.css'
 import keelLogo from '../css/KEEL-logo_white_140x.png'
-import BadgeCard from './BadgeCard'
+import Tab_BadgesByCard from './Tab_BadgesByCard'
+import Tab_BadgesByTable from './Tab_BadgesByTable'
+import Tab_ShippingByCard from './Tab_ShippingByCard'
+import Tab_ShippingByTable from './Tab_ShippingByTable'
 
 // Create Main App Component
 function App() {
-  // ----- Declare vars -----
-  const [badges,setBadges] = useState([])
-  const [error,setError] = useState(false)
-
-  // ----- Setup & Run Functions for queries -----
-
-  // Get all badges from server (on Startup & Refresh)
-  useEffect(()=>{
-    ;(async () => {
-      setError(false) // Reset error to false
-      try{
-        const result = await axios.get('/api/badges') // Query all badges
-        setBadges(result.data)
-
-      } catch(error) {
-        setError(true) 
-      }
-    })()
-  },[])
 
   // ----- Return Markup with loaded data -----
   return (
     <>
         {/* ----- Navbar with Logo & Title ----- */}
 
-      <nav class="nav-extended brand">
-        <div class="nav-wrapper">
+      <nav className="nav-extended brand">
+        <div className="nav-wrapper">
           <a href="https://shopkeel.us" className="brand-logo">
             <img src={keelLogo} className="brand-logo brand-img brand" alt="KEEL" />
           </a>
           
-          <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+          <a href="#" data-target="mobile-demo" className="sidenav-trigger"><i className="material-icons">menu</i></a>
           
-          <ul id="nav-mobile" class="center">
+          <ul id="nav-mobile" className="center">
             <h3 className='brand-text'>KEEL Inventory</h3>
           </ul>
         </div>
+        <div className="containter">
+          <div className="nav-content">
+            <ul className="tabs tabs-transparent">
+              <li className="tab">
+                <a href="#Tab_BadgesByCard">Badges (Card View)</a>
+              </li>
 
-        <div class="nav-content">
-          <ul class="tabs tabs-transparent">
-            <li class="tab">
-              <a href="#test1">Badges (Card View)</a>
-            </li>
+              <li className="tab">
+                <a href="#Tab_BadgesByTable">Badges (Table View)</a>
+              </li>
 
-            <li class="tab disabled">
-              <a href="#test2">Badges (Table View)</a>
-            </li>
+              <li className="tab">
+                <a href="#Tab_ShippingByCard">Shipping Mats. (Card View)</a>
+              </li>
 
-            <li class="tab disabled">
-              <a href="#test4">Shipping Mats. (Card View)</a>
-            </li>
-
-            <li class="tab disabled">
-              <a href="#test4">Shipping Mats. (Table View)</a>
-            </li>
-          </ul>
+              <li className="tab">
+                <a href="#Tab_ShippingByTable">Shipping Mats. (Table View)</a>
+              </li>
+            </ul>
+          </div>
         </div>
 
       </nav>
 
-      
-        
-      {/* ----- Display Fetched data for Badges ----- */}
-      <div className="row">
-        <div className="col s12 m6">
-          {/* If there is an error display this message*/ }
-          { error ? 
-            <p>Something went wrong fetching the Data!</p>
-          : // Else load badges
-            badges.map((badge) => (
-              <BadgeCard {...badge}/>
-            ))
-          }
-        </div>
-      </div>
+      <section id="Tab_BadgesByCard">
+        <Tab_BadgesByCard />
+      </section>
+      <section id="Tab_BadgesByTable">
+        <Tab_BadgesByTable />
+      </section>
+      <section id="Tab_ShippingByCard">
+        <Tab_ShippingByCard />
+      </section>
+      <section id="Tab_ShippingByTable">
+        <Tab_ShippingByTable />
+      </section>
+
     </>
   )
 }
