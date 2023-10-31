@@ -30,6 +30,8 @@ export default function Tab_BadgesByCard() {
   },[])
 
   // Handle Local updating of Badges quantities
+  // TODO: could set the state of an isSaved array in each of these using the id as an index
+  // that isSaved index could be used for hiding Save btn
   const handleDecreaseOnHand = (id) => {
     setBadges(badges.map(badge => {
       if (badge.id === id) {
