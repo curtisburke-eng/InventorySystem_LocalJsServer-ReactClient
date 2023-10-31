@@ -3,8 +3,8 @@ import { useState, useEffect } from 'react'
 import axios from 'axios'
 
 // Get assets & CSS
-import './App.css'
-import keelLogo from '../assets/KEEL-logo_white_140x.png'
+import '../css/main.css'
+import keelLogo from '../css/KEEL-logo_white_140x.png'
 import BadgeCard from './BadgeCard'
 
 // Create Main App Component
@@ -35,22 +35,24 @@ function App() {
       {/* ----- Display Logo & Title ----- */}
       <div>
         <a href="https://shopkeel.us" target="_blank">
-          <img src={keelLogo} className="logo" alt="KEEL Logo" />
+          <img src={keelLogo} className="brand-logo" alt="KEEL Logo" />
         </a>
       </div>
-      <h1>KEEL Inventory</h1>
+      <h1 className='brand-text'>KEEL Inventory</h1>
       
       {/* ----- Display Fetched data for Badges ----- */}
-
-      { error ? // If there is an error display this message
-      <p>Something went wrong fetching the Data!</p>
-
-      : // Else load badges
-      badges.map((badge) => (
-        <BadgeCard {...badge}/>
-      ))}
-
-      
+      <div className="row">
+        <div className="col s12 m6">
+          {/* If there is an error display this message*/ }
+          { error ? 
+            <p>Something went wrong fetching the Data!</p>
+          : // Else load badges
+            badges.map((badge) => (
+              <BadgeCard {...badge}/>
+            ))
+          }
+        </div>
+      </div>
     </>
   )
 }
