@@ -29,6 +29,43 @@ export default function Tab_BadgesByCard() {
     })()
   },[])
 
+  const handleDecreaseOnHand = (id) => {
+    setBadges(badges.map(badge => {
+      if (badge.id === id) {
+        return {...badge, count_onHand: badge.count_onHand -1}
+      } else {
+        return badge
+      }
+    }))
+  }
+  const handleIncreaseOnHand = (id) => {
+    setBadges(badges.map(badge => {
+      if (badge.id === id) {
+        return {...badge, count_onHand: badge.count_onHand +1}
+      } else {
+        return badge
+      }
+    }))
+  }
+  const handleDecreaseOnOrder = (id) => {
+    setBadges(badges.map(badge => {
+      if (badge.id === id) {
+        return {...badge, count_onOrder: badge.count_onOrder -1}
+      } else {
+        return badge
+      }
+    }))
+  }
+  const handleIncreaseOnOrder = (id) => {
+    setBadges(badges.map(badge => {
+      if (badge.id === id) {
+        return {...badge, count_onOrder: badge.count_onOrder +1}
+      } else {
+        return badge
+      }
+    }))
+  }
+
   // ----- Return Markup with loaded data -----
   return (
     <>
@@ -41,7 +78,13 @@ export default function Tab_BadgesByCard() {
           : // Else load badges
             badges.map((badge) => (
               <div className="col s3 m3 l3">
-                <BadgeCard {...badge}/>
+                <BadgeCard 
+                onDecreaseOnHand={handleDecreaseOnHand}
+                onIncreaseOnHand={handleIncreaseOnHand}
+                onDecreaseOnOrder={handleDecreaseOnOrder}
+                onIncreaseOnOrder={handleIncreaseOnOrder}
+                key={badge.id}
+                {...badge} />
               </div>
             ))
           }
