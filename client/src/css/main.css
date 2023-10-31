@@ -9082,12 +9082,18 @@ input[type=range]::-ms-thumb {
     text-align: center;
     margin-top: 1.2rem;
   }
-  /* Set the BRAND specific colors */
-  .brand {
-    background: #7D7D7D !important;
-  }
-  .brand-text {
-    color: #FFFFFF !important;
-  }
+
   
+}
+
+/* Set the BRAND specific colors */
+.brand {
+  background: #0A0A0A !important;
+}
+.brand-img {
+  width: auto;
+  height: 80px;
+}
+.brand-text {
+  color: #FFFFFF !important;
 }

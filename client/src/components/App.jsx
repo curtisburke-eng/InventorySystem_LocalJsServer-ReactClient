@@ -32,14 +32,45 @@ function App() {
   // ----- Return Markup with loaded data -----
   return (
     <>
-      {/* ----- Display Logo & Title ----- */}
-      <div>
-        <a href="https://shopkeel.us" target="_blank">
-          <img src={keelLogo} className="brand-logo" alt="KEEL Logo" />
-        </a>
-      </div>
-      <h1 className='brand-text'>KEEL Inventory</h1>
+        {/* ----- Navbar with Logo & Title ----- */}
+
+      <nav class="nav-extended brand">
+        <div class="nav-wrapper">
+          <a href="https://shopkeel.us" className="brand-logo">
+            <img src={keelLogo} className="brand-logo brand-img brand" alt="KEEL" />
+          </a>
+          
+          <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+          
+          <ul id="nav-mobile" class="center">
+            <h3 className='brand-text'>KEEL Inventory</h3>
+          </ul>
+        </div>
+
+        <div class="nav-content">
+          <ul class="tabs tabs-transparent">
+            <li class="tab">
+              <a href="#test1">Badges (Card View)</a>
+            </li>
+
+            <li class="tab disabled">
+              <a href="#test2">Badges (Table View)</a>
+            </li>
+
+            <li class="tab disabled">
+              <a href="#test4">Shipping Mats. (Card View)</a>
+            </li>
+
+            <li class="tab disabled">
+              <a href="#test4">Shipping Mats. (Table View)</a>
+            </li>
+          </ul>
+        </div>
+
+      </nav>
+
       
+        
       {/* ----- Display Fetched data for Badges ----- */}
       <div className="row">
         <div className="col s12 m6">
