@@ -1,9 +1,11 @@
 // Get Library Functions
 import { useState, useEffect } from 'react'
 import axios from 'axios'
+
 // Get assets & CSS
 import './App.css'
-import keelLogo from './assets/KEEL-logo_white_140x.png'
+import keelLogo from '../assets/KEEL-logo_white_140x.png'
+import BadgeCard from './BadgeCard'
 
 // Create Main App Component
 function App() {
@@ -45,12 +47,7 @@ function App() {
 
       : // Else load badges
       badges.map((badge) => (
-        <div className="card" key={badge.id}>
-          <h3>Size: {badge.size_mm}</h3>
-          <h3>Model: {badge.model}</h3>
-          <h3>Color: {badge.color}</h3>
-        </div>
-
+        <BadgeCard {...badge}/>
       ))}
 
       
