@@ -5075,7 +5075,7 @@ small {
 }
 
 .tabs .tab a {
-  color: rgba(238, 110, 115, 0.7);
+  color: rgba(129, 133, 137, 0.7);  /* Change this to change to tab selection color */
   display: block;
   width: 100%;
   height: 100%;
@@ -5088,7 +5088,7 @@ small {
 }
 
 .tabs .tab a:focus, .tabs .tab a:focus.active {
-  background-color: rgba(246, 178, 181, 0.2);
+  background-color: rgba(129, 133, 137, 0.2); /* Change this to change to tab selection color -- This one is the only one that did it on the navbar*/
   outline: none;
 }
 
@@ -5099,7 +5099,7 @@ small {
 
 .tabs .tab.disabled a,
 .tabs .tab.disabled a:hover {
-  color: rgba(238, 110, 115, 0.4);
+  color: rgba(129, 133, 137, 0.4); /* Change this to change to tab selection color */
   cursor: default;
 }
 

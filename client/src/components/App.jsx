@@ -30,26 +30,25 @@ function App() {
             <h3 className='brand-text'>KEEL Inventory</h3>
           </ul>
         </div>
-        <div className="containter">
-          <div className="nav-content">
-            <ul className="tabs tabs-transparent">
-              <li className="tab">
-                <a href="#Tab_BadgesByCard">Badges (Card View)</a>
-              </li>
 
-              <li className="tab">
-                <a href="#Tab_BadgesByTable">Badges (Table View)</a>
-              </li>
+        <div className="nav-content">
+          <ul className="tabs tabs-transparent">
+            <li className="tab active">
+              <a href="#Tab_BadgesByCard">Badges (Card View)</a>
+            </li>
 
-              <li className="tab">
-                <a href="#Tab_ShippingByCard">Shipping Mats. (Card View)</a>
-              </li>
+            <li className="tab">
+              <a href="#Tab_BadgesByTable">Badges (Table View)</a>
+            </li>
 
-              <li className="tab">
-                <a href="#Tab_ShippingByTable">Shipping Mats. (Table View)</a>
-              </li>
-            </ul>
-          </div>
+            <li className="tab">
+              <a href="#Tab_ShippingByCard">Shipping Mats. (Card View)</a>
+            </li>
+
+            <li className="tab">
+              <a href="#Tab_ShippingByTable">Shipping Mats. (Table View)</a>
+            </li>
+          </ul>
         </div>
 
       </nav>
