@@ -24,8 +24,6 @@ function App() {
             <img src={keelLogo} className="brand-logo brand-img brand" alt="KEEL" />
           </a>
           
-          <a href="#" data-target="mobile-demo" className="sidenav-trigger"><i className="material-icons">menu</i></a>
-          
           <ul id="nav-mobile" className="center">
             <h3 className='brand-text'>KEEL Inventory</h3>
           </ul>

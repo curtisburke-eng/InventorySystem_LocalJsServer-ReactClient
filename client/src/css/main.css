@@ -9090,6 +9090,9 @@ input[type=range]::-ms-thumb {
 .brand {
   background: #0A0A0A !important;
 }
+.brand-blue{
+  background: #002244 !important;
+}
 .brand-img {
   width: auto;
   height: 80px;

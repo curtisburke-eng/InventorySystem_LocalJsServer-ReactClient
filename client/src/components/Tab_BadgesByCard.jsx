@@ -34,16 +34,18 @@ export default function Tab_BadgesByCard() {
     <>
       {/* ----- Display Fetched data for Badges ----- */}
       <div className="row">
-        <div className="col s12 m6">
+        
           {/* If there is an error display this message*/ }
           { error ? 
             <p>Something went wrong fetching the Data!</p>
           : // Else load badges
             badges.map((badge) => (
-              <BadgeCard {...badge}/>
+              <div className="col s3 m3 l3">
+                <BadgeCard {...badge}/>
+              </div>
             ))
           }
-        </div>
+        
       </div>
     </>
   )
