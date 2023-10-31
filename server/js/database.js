@@ -22,7 +22,7 @@ const pool = mysql.createPool({
 // Create the SQL statements used in the GET requests
 
 export async function getAllBadges() {                                             // GET all badges
-    const [rows] = await pool.query("SELECT * FROM badges;")
+    const [rows] = await pool.query("SELECT * FROM badges ORDER BY size_mm ASC, model ASC, color ASC;")
     return rows
 }
 
