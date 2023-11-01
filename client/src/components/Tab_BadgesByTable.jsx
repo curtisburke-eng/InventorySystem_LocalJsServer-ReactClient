@@ -30,24 +30,14 @@ export default function Tab_BadgesByTable() {
   
     // Handle Local updating of Badges quantities
     
-  
-    // Save the updated Data to Database
-    const handleSave = async (id) => {
-      setError(false)
-      try{
-        const result = await axios.put('http://localhost:8080/badge', badges.find((badge) => badge.id === id))
-        // console.log(result.status)
+    const handleUpdate = (updatedBadge) => {
         setBadges(badges.map(badge => {
-          if (badge.id === id) {
-            return {...badge, isSaved: 1}
-          } else {
-            return badge
-          }
-        }))
-  
-      } catch(error) {
-        setError(true) 
-      }
+                  if (badge.id === updatedBadge.id) {
+                    return updatedBadge // IDK if this is right
+                  } else {
+                    return badge
+                  }
+                }))
     }
   
     // ----- Return Markup with loaded data -----
@@ -77,7 +67,7 @@ export default function Tab_BadgesByTable() {
                     badges.map((badge) => (
                         
                         <BadgeRow 
-                        onSave={handleSave}
+                        onUpdate={handleUpdate}
                         key={badge.id}
                         {...badge} />
                         
