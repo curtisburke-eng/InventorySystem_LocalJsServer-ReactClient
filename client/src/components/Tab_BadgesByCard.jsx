@@ -36,7 +36,7 @@ export default function Tab_BadgesByCard() {
   const handleDecreaseOnHand = (id) => {
     setBadges(badges.map(badge => {
       if (badge.id === id) {
-        return {...badge, count_onHand: badge.count_onHand -1}
+        return {...badge, count_onHand: badge.count_onHand -1, isSaved: 0}
       } else {
         return badge
       }
@@ -45,7 +45,7 @@ export default function Tab_BadgesByCard() {
   const handleIncreaseOnHand = (id) => {
     setBadges(badges.map(badge => {
       if (badge.id === id) {
-        return {...badge, count_onHand: badge.count_onHand +1}
+        return {...badge, count_onHand: badge.count_onHand +1, isSaved: 0}
       } else {
         return badge
       }
@@ -54,7 +54,7 @@ export default function Tab_BadgesByCard() {
   const handleDecreaseOnOrder = (id) => {
     setBadges(badges.map(badge => {
       if (badge.id === id) {
-        return {...badge, count_onOrder: badge.count_onOrder -1}
+        return {...badge, count_onOrder: badge.count_onOrder -1, isSaved: 0}
       } else {
         return badge
       }
@@ -63,7 +63,7 @@ export default function Tab_BadgesByCard() {
   const handleIncreaseOnOrder = (id) => {
     setBadges(badges.map(badge => {
       if (badge.id === id) {
-        return {...badge, count_onOrder: badge.count_onOrder +1}
+        return {...badge, count_onOrder: badge.count_onOrder +1, isSaved: 0}
       } else {
         return badge
       }
@@ -76,6 +76,13 @@ export default function Tab_BadgesByCard() {
     try{
       const result = await axios.put('http://localhost:8080/badge', badges.find((badge) => badge.id === id))
       console.log(result.status)
+      setBadges(badges.map(badge => {
+        if (badge.id === id) {
+          return {...badge, isSaved: 1}
+        } else {
+          return badge
+        }
+      }))
 
     } catch(error) {
       setError(true) 

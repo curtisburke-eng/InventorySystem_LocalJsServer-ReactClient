@@ -73,12 +73,9 @@ export default function BadgeCard({id, size_mm, model,color,count_onHand,count_o
 
                     </div>
                 </div>
-                <div className="row">
-                    <div className="col s5 m5 l5"></div>
-                        <div className="col s2 m2 l2">
+                
+                <div className="row center">
                         {saveButton}
-                        </div>
-                    <div className="col s5 m5 l5"></div>
                 </div>
                 
                 
