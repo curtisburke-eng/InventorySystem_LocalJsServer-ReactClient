@@ -1,7 +1,7 @@
 // Get assets & CSS
 import '../css/main.css'
 
-export default function BadgeCard({id, size_mm, model,color,count_onHand,count_onOrder, onDecreaseOnHand,onIncreaseOnHand,onDecreaseOnOrder,onIncreaseOnOrder, onSave}) {
+export default function BadgeCard({id, size_mm, model,color,count_onHand,count_onOrder,isSaved, onDecreaseOnHand,onIncreaseOnHand,onDecreaseOnOrder,onIncreaseOnOrder, onSave}) {
     const handleDecreaseOnHand = () => {
         onDecreaseOnHand(id)
     }
@@ -19,8 +19,19 @@ export default function BadgeCard({id, size_mm, model,color,count_onHand,count_o
         onSave(id)
     }
 
+    // Display Saved button if not saved
+    let saveButton = null
+    if(isSaved == 0) {
+        saveButton = <button className="waves-effect waves-light btn grey" onClick={handleSave}>
+                    Save</button>
+     } else {
+        saveButton = <button className="waves-effect waves-light btn brand">
+                    Saved</button>
+     }
+
     return (
         <div className="card brand-blue">
+
             <div className="card-content white-text" key={id}>
                 <h3 className="center"> {size_mm} MM </h3>
                 <h4 className="center">{model} {color} </h4>
@@ -64,13 +75,13 @@ export default function BadgeCard({id, size_mm, model,color,count_onHand,count_o
                 </div>
                 <div className="row">
                     <div className="col s5 m5 l5"></div>
-                    <div className="col s2 m2 l2">
-                        <button className="waves-effect waves-light btn brand"
-                        onClick={handleSave}>Save</button>
-                    </div>
+                        <div className="col s2 m2 l2">
+                        {saveButton}
+                        </div>
                     <div className="col s5 m5 l5"></div>
-                    
                 </div>
+                
+                
                 
             </div>
         </div>
