@@ -11,8 +11,7 @@ export default function Tab_BadgesByCard() {
   // ----- Declare vars -----
   const [badges,setBadges] = useState([])
   const [error,setError] = useState(false)
-  const [putReq, setPutReq] = useState()
-
+  
   // ----- Setup & Run Functions for queries -----
 
   // Get all badges from server (on Startup & Refresh)
@@ -31,8 +30,6 @@ export default function Tab_BadgesByCard() {
   },[])
 
   // Handle Local updating of Badges quantities
-  // TODO: could set the state of an isSaved array in each of these using the id as an index
-  // that isSaved index could be used for hiding Save btn
   const handleDecreaseOnHand = (id) => {
     setBadges(badges.map(badge => {
       if (badge.id === id) {
