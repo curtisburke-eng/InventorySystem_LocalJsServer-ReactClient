@@ -22,7 +22,7 @@ export default function Tab_BadgesByCard() {
       try{
         const result = await axios.get('/api/badges') // Query all badges
         setBadges(result.data)
-        console.log(result.data)
+        // console.log(result.data)
 
       } catch(error) {
         setError(true) 
@@ -75,7 +75,7 @@ export default function Tab_BadgesByCard() {
     setError(false)
     try{
       const result = await axios.put('http://localhost:8080/badge', badges.find((badge) => badge.id === id))
-      console.log(result.status)
+      // console.log(result.status)
       setBadges(badges.map(badge => {
         if (badge.id === id) {
           return {...badge, isSaved: 1}
