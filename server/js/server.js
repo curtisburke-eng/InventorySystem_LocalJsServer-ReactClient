@@ -15,7 +15,7 @@ dotenv.config()
 
 // Use CORS for security
 import cors from 'cors'
-server.use(cors())
+server.use(cors()) // This allows access from any frontend ... not what I want
 
 // Get functions from database server
 import {getBadges, getAllBadges, getBadgesBySize, getBadgesByColor, getBadgesByModel, updateBadgeQty} from './database.js'
@@ -60,9 +60,9 @@ server.get("/badges/byModel", async (req,res) => {
 // Update All badges
 
 // Update single badge
-server.put("/badges", async (req,res) => {
-    const {size, color, model, count_onHand, count_onOrder} = req.body
-    const badges = await updateBadgeQty(size, color, model, count_onHand,count_onOrder)
+server.put("/badge", async (req,res) => {
+    const {id, count_onHand, count_onOrder} = req.body
+    const badges = await updateBadgeQty(id, count_onHand,count_onOrder)
     res.status(201).send(badges)
 })
 
