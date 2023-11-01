@@ -11,6 +11,7 @@ export default function Tab_BadgesByCard() {
   // ----- Declare vars -----
   const [badges,setBadges] = useState([])
   const [error,setError] = useState(false)
+  const [putReq, setPutReq] = useState()
 
   // ----- Setup & Run Functions for queries -----
 
@@ -70,17 +71,15 @@ export default function Tab_BadgesByCard() {
   }
 
   // Save the updated Data to Database
-  // TODO: Map is not what i want to do here. I only want to be returned a single object 
-  // Then I wont have to index it in the request. Do I want filter?
   const handleSave = async (id) => {
-    const req = badges.map(badge => {
-      if (badge.id === id) {
-        return badge
-      }
-    })
-    console.log(req)
-    const result = await axios.put('http://localhost:8080/badge', req[0])
-   
+    setError(false)
+    try{
+      const result = await axios.put('http://localhost:8080/badge', badges.find((badge) => badge.id === id))
+      console.log(result.status)
+
+    } catch(error) {
+      setError(true) 
+    }
   }
 
   // ----- Return Markup with loaded data -----
