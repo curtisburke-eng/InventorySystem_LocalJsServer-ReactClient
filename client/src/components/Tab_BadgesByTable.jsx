@@ -40,6 +40,34 @@ export default function Tab_BadgesByTable() {
                 }))
         // console.log(updatedBadge.id,updatedBadge.count_onHand, updatedBadge.count_onOrder)
     }
+
+      // Save the updated Data to Database
+    const handleSave = async (updatedCounts) => {
+        // Update the local state of the badges object
+        setBadges(badges.map(badge => {
+            if (badge.id === updatedCounts.id) {
+              return {...badge, count_onHand: updatedCounts.count_onHand, count_onOrder: updatedCounts.count_onOrder}
+            } else {
+              return badge
+            }
+          }))
+
+        setError(false)
+        try{
+        const result = await axios.put('http://localhost:8080/badge', badges.find((badge) => badge.id === updatedCounts.id))
+        
+        // setBadges(badges.map(badge => {
+        //     if (badge.id === id) {
+        //     return {...badge, isSaved: 1}
+        //     } else {
+        //     return badge
+        //     }
+        // }))
+
+        } catch(error) {
+        setError(true) 
+        }
+    }
   
     // ----- Return Markup with loaded data -----
     return (
@@ -68,7 +96,8 @@ export default function Tab_BadgesByTable() {
                     badges.map((badge) => (
                         
                         <BadgeRow 
-                        onUpdate={handleUpdate}
+                        // onUpdate={handleUpdate}
+                        onSave={handleSave}
                         key={badge.id}
                         {...badge} />
                         

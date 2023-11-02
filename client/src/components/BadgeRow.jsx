@@ -8,16 +8,9 @@ export default function BadgeRow({id, size_mm, model,color,count_onHand,count_on
     const [newOOCount, setNewOOCount] = useState(count_onOrder)
 
     const handleSave = async (e) => {
-
-        //TODO SHould add try cathc and error things like in the by Card jsx
         e.preventDefault()
-        // onSave(id, newOHCount, newOOCount)
-        console.log(newOHCount,newOOCount)
         let req = {'id':id, 'count_onHand':newOHCount,'count_onOrder':newOOCount}
-        //TODO only do put request if data is new (COULD be handled using is saved and a non-active button)
-        const result = await axios.put('http://localhost:8080/badge', req)
-        console.log(result)
-        onUpdate(req)
+        onSave(req)
         
     }
 
