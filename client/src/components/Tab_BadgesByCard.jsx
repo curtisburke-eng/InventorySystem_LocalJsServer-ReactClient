@@ -7,7 +7,9 @@ import '../css/main.css'
 import BadgeCard from './BadgeCard'
 
 // Create Tab_BadgesByCard Component
-export default function Tab_BadgesByCard() {
+export default function Tab_BadgesByCard(tabClick) {
+  // console.log("Cards rendered");
+  
   // ----- Declare vars -----
   const [badges,setBadges] = useState([])
   const [error,setError] = useState(false)
@@ -15,19 +17,17 @@ export default function Tab_BadgesByCard() {
   // ----- Setup & Run Functions for queries -----
 
   // Get all badges from server (on Startup & Refresh)
-  useEffect(()=>{
-    ;(async () => {
-      setError(false) // Reset error to false
-      try{
-        const result = await axios.get('/api/badges') // Query all badges
-        setBadges(result.data)
-        // console.log(result.data)
-
-      } catch(error) {
-        setError(true) 
-      }
-    })()
-  },[])
+  useEffect(() => {
+    // Send a GET request to access the badges info
+    axios
+      .get("http://localhost:8080/badges")
+      .then((response) => {
+        setBadges(response.data);
+      })
+      .catch((error) => {
+        console.error("Error fetching data: ", error);
+      });
+  }, [tabClick]);
 
   // Handle Local updating of Badges quantities
   const handleDecreaseOnHand = (id) => {

@@ -1,12 +1,15 @@
 // Get Library Functions
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+
 // Get assets & CSS
 import '../css/main.css'
 import BadgeForm from "./BadgeForm";
 
 // Create Tab_BadgesByTable Component
-function Tab_BadgesByTable() {
+function Tab_BadgesByTable(tabClick) {
+  // console.log("Table rendered");
+  
   // ----- Declare vars -----
   const [badges, setBadges] = useState([]);
   
@@ -22,7 +25,7 @@ function Tab_BadgesByTable() {
       .catch((error) => {
         console.error("Error fetching data: ", error);
       });
-  }, []);
+  }, [tabClick]);
 
   // Handle Saving form data to the database
   const handleSaveData = (id) => (event) => {
