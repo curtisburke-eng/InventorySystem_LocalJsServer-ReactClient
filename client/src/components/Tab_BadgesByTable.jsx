@@ -44,18 +44,34 @@ export default function Tab_BadgesByTable() {
       // Save the updated Data to Database
     const handleSave = async (updatedCounts) => {
         // Update the local state of the badges object
-        setBadges(badges.map(badge => {
-            if (badge.id === updatedCounts.id) {
-              return {...badge, count_onHand: updatedCounts.count_onHand, count_onOrder: updatedCounts.count_onOrder}
-            } else {
+        console.log(updatedCounts.count_onHand)
+        console.log('Pre map:', badges.find((badge) => badge.id === updatedCounts.id))
+
+        // This kinda works... maybe do a for each?
+        // maybe set map result equal to a var then use setBadges
+        setBadges(badges.map((badge) => {
+           if (badge.id === updatedCounts.id) {
+              badge.count_onHand = Number(updatedCounts.count_onHand)
+              badge.count_onOrder = Number(updatedCounts.count_onOrder)
+            
               return badge
             }
           }))
+        // setBadges(badges.map(badge => {
+        //         if (badge.id === updatedCounts.id) {
+        //           return {...badge, 'count_onHand': Number(updatedCounts.count_onHand), 'count_onOrder': Number(updatedCounts.count_onOrder)}
+        //         }
+        //         else {
+        //             return badge
+        //         }
+        //       }))
+        
+        console.log('Post map:', badges.find((badge) => badge.id === updatedCounts.id))
 
         setError(false)
         try{
         const result = await axios.put('http://localhost:8080/badge', badges.find((badge) => badge.id === updatedCounts.id))
-
+        console.log(result.data)
         } catch(error) {
         setError(true) 
         }
