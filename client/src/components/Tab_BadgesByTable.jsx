@@ -9,7 +9,7 @@ import BadgeForm from "./BadgeForm";
 // Create Tab_BadgesByTable Component
 function Tab_BadgesByTable(tabClick) {
   // console.log("Table rendered");
-  
+
   // ----- Declare vars -----
   const [badges, setBadges] = useState([]);
   
@@ -32,12 +32,19 @@ function Tab_BadgesByTable(tabClick) {
     event.preventDefault();
 
     // Create temp vars for the new counts
-    const updatedOnHand = parseInt(event.target.elements.newCount_onHand.value, 10);
-    const updatedOnOrder = parseInt(event.target.elements.newCount_onOrder.value, 10);
-
+    let updatedOnHand = parseInt(event.target.elements.newCount_onHand.value, 10);
+    let updatedOnOrder = parseInt(event.target.elements.newCount_onOrder.value, 10);
+    console.log('updatedOnOrder:', updatedOnOrder, 'type',typeof(updatedOnOrder))
     // Update the state of the badges array (with the new counts) - this is used for keeping the UI up to date
     const updatedBadges = badges.map((badge) => {
       if (badge.id === id) {
+        if (Number.isNaN(updatedOnHand)) {
+          updatedOnHand = badge.count_onHand
+        }
+        if (Number.isNaN(updatedOnOrder)) {
+          updatedOnOrder = badge.count_onOrder
+        }
+
         return { ...badge, count_onHand: updatedOnHand, count_onOrder: updatedOnOrder };
       }
       return badge;
