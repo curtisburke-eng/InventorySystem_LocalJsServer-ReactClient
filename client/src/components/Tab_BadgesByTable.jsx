@@ -55,14 +55,6 @@ export default function Tab_BadgesByTable() {
         setError(false)
         try{
         const result = await axios.put('http://localhost:8080/badge', badges.find((badge) => badge.id === updatedCounts.id))
-        
-        // setBadges(badges.map(badge => {
-        //     if (badge.id === id) {
-        //     return {...badge, isSaved: 1}
-        //     } else {
-        //     return badge
-        //     }
-        // }))
 
         } catch(error) {
         setError(true) 
@@ -96,7 +88,6 @@ export default function Tab_BadgesByTable() {
                     badges.map((badge) => (
                         
                         <BadgeRow 
-                        // onUpdate={handleUpdate}
                         onSave={handleSave}
                         key={badge.id}
                         {...badge} />
