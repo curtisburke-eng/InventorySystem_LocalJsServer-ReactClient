@@ -97,7 +97,6 @@ export default function Tab_BadgesByCard(tabClick) {
             <p>Something went wrong fetching the Data!</p>
           : // Else load badges
             badges.map((badge) => (
-              <div className="col s3 m3 l3">
                 <BadgeCard 
                 onDecreaseOnHand={handleDecreaseOnHand}
                 onIncreaseOnHand={handleIncreaseOnHand}
@@ -106,7 +105,6 @@ export default function Tab_BadgesByCard(tabClick) {
                 onSave={handleSave}
                 key={badge.id}
                 {...badge} />
-              </div>
             ))
           }
         
