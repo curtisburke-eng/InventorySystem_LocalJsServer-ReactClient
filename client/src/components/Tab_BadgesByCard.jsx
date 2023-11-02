@@ -9,7 +9,7 @@ import BadgeCard from './BadgeCard'
 // Create Tab_BadgesByCard Component
 export default function Tab_BadgesByCard(tabClick) {
   // console.log("Cards rendered");
-  
+
   // ----- Declare vars -----
   const [badges,setBadges] = useState([])
   const [error,setError] = useState(false)
@@ -33,7 +33,11 @@ export default function Tab_BadgesByCard(tabClick) {
   const handleDecreaseOnHand = (id) => {
     setBadges(badges.map(badge => {
       if (badge.id === id) {
-        return {...badge, count_onHand: badge.count_onHand -1, isSaved: 0}
+        if(badge.count_onHand == 0){
+          return {...badge, count_onHand: badge.count_onHand, isSaved: 0}
+        } else{
+          return {...badge, count_onHand: badge.count_onHand -1, isSaved: 0}
+        }
       } else {
         return badge
       }
@@ -51,7 +55,11 @@ export default function Tab_BadgesByCard(tabClick) {
   const handleDecreaseOnOrder = (id) => {
     setBadges(badges.map(badge => {
       if (badge.id === id) {
-        return {...badge, count_onOrder: badge.count_onOrder -1, isSaved: 0}
+        if(badge.count_onOrder == 0){
+          return {...badge, count_onOrder: badge.count_onOrder, isSaved: 0}
+        }else {
+          return {...badge, count_onOrder: badge.count_onOrder -1, isSaved: 0}
+        }
       } else {
         return badge
       }

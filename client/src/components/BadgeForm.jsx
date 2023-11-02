@@ -47,7 +47,7 @@ const BadgeForm = ({ onSaveData, badge }) => {
             <label style={{marginLeft: "10px"}}>
               On Hand:
               <input className='brand-text' type="number" style={{marginLeft: "15px", width: "100px"}} name="newCount_onHand" 
-              defaultValue={badge.count_onHand} onChange={handleInputChange}/>
+              min='0' onChange={handleInputChange}/>
             </label>
           </div>
           
@@ -55,14 +55,14 @@ const BadgeForm = ({ onSaveData, badge }) => {
             <label style={{marginLeft: "10px"}}>
               On Order:
               <input className='brand-text' type="number" style={{marginLeft: "15px", width: "100px"}} name="newCount_onOrder" 
-              defaultValue={badge.count_onOrder} onChange={handleInputChange}/>
+              min='0' onChange={handleInputChange}/>
             </label>
           </div>
           
           <div className="col s3 m3 l3" style={{marginLeft: "10px"}}>
             {saveButton}
           </div>
-          
+
         </div>
       </form>
     
