@@ -13,6 +13,7 @@ export default function BadgeRow({id, size_mm, model,color,count_onHand,count_on
         e.preventDefault()
         // onSave(id, newOHCount, newOOCount)
         console.log(newOHCount,newOOCount)
+        //TODO only do put request if data is new (COULD be handled using is saved and a non-active button)
         const result = await axios.put('http://localhost:8080/badge', {'id':id, 'count_onHand':newOHCount,'count_onOrder':newOOCount})
         console.log(result.data)
         onUpdate(result.data)
