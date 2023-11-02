@@ -2,14 +2,14 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import '../css/main.css'
-import BadgeRow from "./BadgeRow";
+import BadgeForm from "./BadgeForm";
 
 function Tab_BadgesByTable() {
   const [badges, setBadges] = useState([]);
 
   useEffect(() => {
     axios
-      .get("http://localhost:8080/badges") // Replace with your API endpoint
+      .get("http://localhost:8080/badges")
       .then((response) => {
         setBadges(response.data);
       })
@@ -20,12 +20,12 @@ function Tab_BadgesByTable() {
 
   const handleSaveData = (id) => (event) => {
     event.preventDefault();
-    const updatedValue1 = parseInt(event.target.elements.value1.value, 10);
-    const updatedValue2 = parseInt(event.target.elements.value2.value, 10);
+    const updatedOnHand = parseInt(event.target.elements.newCount_onHand.value, 10);
+    const updatedOnOrder = parseInt(event.target.elements.newCount_onOrder.value, 10);
 
     const updatedBadges = badges.map((badge) => {
       if (badge.id === id) {
-        return { ...badge, count_onHand: updatedValue1, count_onOrder: updatedValue2 };
+        return { ...badge, count_onHand: updatedOnHand, count_onOrder: updatedOnOrder };
       }
       return badge;
     });
@@ -35,8 +35,8 @@ function Tab_BadgesByTable() {
     axios
       .put(`http://localhost:8080/badge`, {
         id: id,
-        count_onHand: updatedValue1,
-        count_onOrder: updatedValue2,
+        count_onHand: updatedOnHand,
+        count_onOrder: updatedOnOrder,
       })
       .then((response) => {
         console.log("Badge updated successfully:", response.data);
@@ -47,7 +47,7 @@ function Tab_BadgesByTable() {
   };
 
   return (
-    <div className="App">
+    <div className="container">
       <table className="highlight brand-blue brand-text">
         <thead>
           <tr>
@@ -56,8 +56,8 @@ function Tab_BadgesByTable() {
             <th>Color</th>
             <th>Current On Hand</th>
             <th>Current On Order</th>
-            {/* <th>New On Hand</th>
-            <th>New On Order</th>
+            <th>New Counts</th>
+            {/*<th>New On Order</th>
             <th></th> */}
           </tr>
         </thead>
@@ -69,9 +69,12 @@ function Tab_BadgesByTable() {
                 <td>{badge.color}</td>
                 <td>{badge.count_onHand}</td>
                 <td>{badge.count_onOrder}</td>
-              <td>
-                <BadgeRow handleSaveData={handleSaveData} badge={badge} />
-              </td>
+                <td>
+                    <BadgeForm 
+                    handleSaveData={handleSaveData}
+                    badge={badge}
+                    />
+                </td>
             </tr>
           ))}
         </tbody>
