@@ -1,119 +1,76 @@
-import { useState, useEffect } from 'react'
-import axios from 'axios'
+// App.js
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+import BadgeComponent from "./BadgeComponent";
 
-// Get assets & CSS
-import '../css/main.css'
-import BadgeRow from './BadgeRow'
+function App() {
+  const [badges, setBadges] = useState([]);
 
-// Create Tab_BadgesByTable Component
-export default function Tab_BadgesByTable() {
-    // ----- Declare vars -----
-    const [badges,setBadges] = useState([])
-    const [error,setError] = useState(false)
-    
-    // ----- Setup & Run Functions for queries -----
-  
-    // Get all badges from server (on Startup & Refresh)
-    useEffect(()=>{
-      ;(async () => {
-        setError(false) // Reset error to false
-        try{
-          const result = await axios.get('/api/badges') // Query all badges
-          setBadges(result.data)
-          // console.log(result.data)
-  
-        } catch(error) {
-          setError(true) 
-        }
-      })()
-    },[])
-  
-    // Handle Local updating of Badges quantities
-    
-    const handleUpdate = (updatedBadge) => {
-        setBadges(badges.map(badge => {
-                  if (badge.id === updatedBadge.id) {
-                    return {...badge, count_onHand: updatedBadge.count_onHand, count_onOrder: updatedBadge.count_onOrder }
-                  } else {
-                    return badge
-                  }
-                }))
-        // console.log(updatedBadge.id,updatedBadge.count_onHand, updatedBadge.count_onOrder)
-    }
+  useEffect(() => {
+    axios
+      .get("https://api.example.com/badges") // Replace with your API endpoint
+      .then((response) => {
+        setBadges(response.data);
+      })
+      .catch((error) => {
+        console.error("Error fetching data: ", error);
+      });
+  }, []);
 
-      // Save the updated Data to Database
-    const handleSave = async (updatedCounts) => {
-        // Update the local state of the badges object
-        console.log(updatedCounts.count_onHand)
-        console.log('Pre map:', badges.find((badge) => badge.id === updatedCounts.id))
+  const handleSaveData = (id) => (event) => {
+    event.preventDefault();
+    const updatedValue1 = parseInt(event.target.elements.value1.value, 10);
+    const updatedValue2 = parseInt(event.target.elements.value2.value, 10);
 
-        // This kinda works... maybe do a for each?
-        // maybe set map result equal to a var then use setBadges
-        setBadges(badges.map((badge) => {
-           if (badge.id === updatedCounts.id) {
-              badge.count_onHand = Number(updatedCounts.count_onHand)
-              badge.count_onOrder = Number(updatedCounts.count_onOrder)
-            
-              return badge
-            }
-          }))
-        // setBadges(badges.map(badge => {
-        //         if (badge.id === updatedCounts.id) {
-        //           return {...badge, 'count_onHand': Number(updatedCounts.count_onHand), 'count_onOrder': Number(updatedCounts.count_onOrder)}
-        //         }
-        //         else {
-        //             return badge
-        //         }
-        //       }))
-        
-        console.log('Post map:', badges.find((badge) => badge.id === updatedCounts.id))
+    const updatedBadges = badges.map((badge) => {
+      if (badge.id === id) {
+        return { ...badge, value1: updatedValue1, value2: updatedValue2 };
+      }
+      return badge;
+    });
 
-        setError(false)
-        try{
-        const result = await axios.put('http://localhost:8080/badge', badges.find((badge) => badge.id === updatedCounts.id))
-        console.log(result.data)
-        } catch(error) {
-        setError(true) 
-        }
-    }
-  
-    // ----- Return Markup with loaded data -----
-    return (
-        <div className='container'>
-            <table className='highlight brand-blue brand-text'>
-                <thead>
-                <tr>
-                    <th>Size (MM)</th>
-                    <th>Model</th>
-                    <th>Color</th>
-                    <th>Current On Hand</th>
-                    <th>Current On Order</th>
-                    <th>New On Hand</th>
-                    <th>New On Order</th>
-                    <th></th>
-                </tr>
-                </thead>
+    setBadges(updatedBadges);
 
-                <tbody>
-                    {/* ----- Display Fetched data for Badges ----- */}
-        
-                    {/* If there is an error display this message*/ }
-                    { error ? 
-                    <tr>Something went wrong fetching the Data!</tr>
-                    : // Else load badges
-                    badges.map((badge) => (
-                        
-                        <BadgeRow 
-                        onSave={handleSave}
-                        key={badge.id}
-                        {...badge} />
-                        
-                    ))
-                    }
-      
-    
-                </tbody>
-            </table>
-        </div>
-    )
+    axios
+      .put(`https://api.example.com/badges/${id}`, {
+        value1: updatedValue1,
+        value2: updatedValue2,
+      })
+      .then((response) => {
+        console.log("Badge updated successfully:", response.data);
+      })
+      .catch((error) => {
+        console.error("Error updating badge: ", error);
+      });
+  };
+
+  return (
+    <div className="App">
+      <h1>Badges</h1>
+      <table>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Value 1</th>
+            <th>Value 2</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          {badges.map((badge) => (
+            <tr key={badge.id}>
+              <td>{badge.name}</td>
+              <td>{badge.value1}</td>
+              <td>{badge.value2}</td>
+              <td>
+                <BadgeComponent handleSaveData={handleSaveData} badge={badge} />
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  );
 }
+
+export default App;
