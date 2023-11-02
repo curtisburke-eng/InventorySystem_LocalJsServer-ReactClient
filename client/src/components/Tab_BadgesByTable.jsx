@@ -57,8 +57,6 @@ function Tab_BadgesByTable() {
             <th>Current On Hand</th>
             <th>Current On Order</th>
             <th>New Counts</th>
-            {/*<th>New On Order</th>
-            <th></th> */}
           </tr>
         </thead>
         <tbody>
@@ -71,7 +69,7 @@ function Tab_BadgesByTable() {
                 <td>{badge.count_onOrder}</td>
                 <td>
                     <BadgeForm 
-                    handleSaveData={handleSaveData}
+                    onSaveData={handleSaveData}
                     badge={badge}
                     />
                 </td>
