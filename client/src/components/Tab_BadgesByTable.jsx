@@ -48,7 +48,7 @@ function Tab_BadgesByTable() {
 
   return (
     <div className="container">
-      <table className="highlight brand-blue brand-text">
+      <table className="highlight centered brand-blue brand-text">
         <thead>
           <tr>
             <th>Size (MM)</th>

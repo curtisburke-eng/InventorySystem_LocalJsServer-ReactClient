@@ -22,27 +22,36 @@ const BadgeForm = ({ onSaveData, badge }) => {
   if (formSubmitted){
       saveButton = <button className="waves-effect waves-light btn brand">Saved</button>
    } else {
-      saveButton = <button type="submit" className="waves-effect waves-light btn grey">Save</button>
+      saveButton = <button className="waves-effect waves-light btn grey" type="submit" >Save</button>
    }
 
   return (
-    <div key={badge.id}>
+    
       <form onSubmit={handleSubmit(badge.id)}>
-        <label>
-          On Hand:
-          <input className='brand-text' type="number" name="newCount_onHand" 
-          defaultValue={badge.count_onHand} onChange={handleInputChange}/>
-        </label>
-        
-        <label>
-          On Order:
-          <input className='brand-text' type="number" name="newCount_onOrder" 
-          defaultValue={badge.count_onOrder} onChange={handleInputChange}/>
-        </label>
-        <br />
-        {saveButton}
+        <div className="row valign-wrapper" style={{marginBottom: "auto"}} key={badge.id}>
+          
+          <div className="col s4 m4 l4">
+            <label style={{marginLeft: "10px"}}>
+              On Hand:
+              <input className='brand-text' type="number" style={{marginLeft: "15px", width: "100px"}} name="newCount_onHand" 
+              defaultValue={badge.count_onHand} onChange={handleInputChange}/>
+            </label>
+          </div>
+          
+          <div className="col s4 m4 l4">
+            <label style={{marginLeft: "10px"}}>
+              On Order:
+              <input className='brand-text' type="number" style={{marginLeft: "15px", width: "100px"}} name="newCount_onOrder" 
+              defaultValue={badge.count_onOrder} onChange={handleInputChange}/>
+            </label>
+          </div>
+          
+          <div className="col s3 m3 l3" style={{marginLeft: "10px"}}>
+            {saveButton}
+          </div>
+        </div>
       </form>
-    </div>
+    
   );
 };
 
