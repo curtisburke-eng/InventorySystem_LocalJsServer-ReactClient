@@ -16,8 +16,17 @@ const BadgeForm = ({ onSaveData, badge }) => {
 
   // Handler function for submitting the form and resetting the local state
   const handleSubmit = (id) => (event) => {
-    setFormSubmitted(true);
+    // Save the data to the database
     onSaveData(id)(event);
+
+    // Set the local state for submission tracking
+    setFormSubmitted(true);
+    
+    // Reset the form using the id for that line (badge)
+    var name = 'form' + id
+    var frm = document.getElementsByName(name)[0];
+    frm.reset();  // Reset all form data
+    
   };
 
   // Display different Saved button based on form submission state
@@ -31,7 +40,7 @@ const BadgeForm = ({ onSaveData, badge }) => {
   // Return markup for the form enrty for each row
   return (
     
-      <form onSubmit={handleSubmit(badge.id)}>
+      <form onSubmit={handleSubmit(badge.id)} name={'form'+badge.id} >
         <div className="row valign-wrapper" style={{marginBottom: "auto"}} key={badge.id}>
           
           <div className="col s4 m4 l4">
