@@ -1,14 +1,15 @@
-// App.js
+// Tab_BadgesByTable
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import BadgeComponent from "./BadgeComponent";
+import '../css/main.css'
+import BadgeRow from "./BadgeRow";
 
-function App() {
+function Tab_BadgesByTable() {
   const [badges, setBadges] = useState([]);
 
   useEffect(() => {
     axios
-      .get("https://api.example.com/badges") // Replace with your API endpoint
+      .get("http://localhost:8080/badges") // Replace with your API endpoint
       .then((response) => {
         setBadges(response.data);
       })
@@ -24,7 +25,7 @@ function App() {
 
     const updatedBadges = badges.map((badge) => {
       if (badge.id === id) {
-        return { ...badge, value1: updatedValue1, value2: updatedValue2 };
+        return { ...badge, count_onHand: updatedValue1, count_onOrder: updatedValue2 };
       }
       return badge;
     });
@@ -32,9 +33,10 @@ function App() {
     setBadges(updatedBadges);
 
     axios
-      .put(`https://api.example.com/badges/${id}`, {
-        value1: updatedValue1,
-        value2: updatedValue2,
+      .put(`http://localhost:8080/badge`, {
+        id: id,
+        count_onHand: updatedValue1,
+        count_onOrder: updatedValue2,
       })
       .then((response) => {
         console.log("Badge updated successfully:", response.data);
@@ -46,24 +48,29 @@ function App() {
 
   return (
     <div className="App">
-      <h1>Badges</h1>
-      <table>
+      <table className="highlight brand-blue brand-text">
         <thead>
           <tr>
-            <th>Name</th>
-            <th>Value 1</th>
-            <th>Value 2</th>
-            <th>Action</th>
+            <th>Size (MM)</th>
+            <th>Model</th>
+            <th>Color</th>
+            <th>Current On Hand</th>
+            <th>Current On Order</th>
+            {/* <th>New On Hand</th>
+            <th>New On Order</th>
+            <th></th> */}
           </tr>
         </thead>
         <tbody>
           {badges.map((badge) => (
             <tr key={badge.id}>
-              <td>{badge.name}</td>
-              <td>{badge.value1}</td>
-              <td>{badge.value2}</td>
+                <td>{badge.size_mm}</td>
+                <td>{badge.model}</td>
+                <td>{badge.color}</td>
+                <td>{badge.count_onHand}</td>
+                <td>{badge.count_onOrder}</td>
               <td>
-                <BadgeComponent handleSaveData={handleSaveData} badge={badge} />
+                <BadgeRow handleSaveData={handleSaveData} badge={badge} />
               </td>
             </tr>
           ))}
@@ -73,4 +80,4 @@ function App() {
   );
 }
 
-export default App;
+export default Tab_BadgesByTable;

@@ -1,10 +1,9 @@
-// BadgeComponent.js
+// BadgeRow.js
 import React from "react";
 
-const BadgeComponent = ({ handleSaveData, badge }) => {
+const BadgeRow = ({ handleSaveData, badge }) => {
   return (
     <div key={badge.id}>
-      <h3>{badge.name}</h3>
       <form onSubmit={handleSaveData(badge.id)}>
         <label>
           Value 1:
@@ -22,4 +21,4 @@ const BadgeComponent = ({ handleSaveData, badge }) => {
   );
 };
 
-export default BadgeComponent;
+export default BadgeRow;
