@@ -4,20 +4,23 @@ import { useState } from "react";
 import '../css/main.css'
 
 const BadgeForm = ({ onSaveData, badge }) => {
+  // Create local var for tracking submission status
   const [formSubmitted, setFormSubmitted] = useState(true);
 
+  // Handler function for dynamically setting state based on an onChange event within the form inputs
   const handleInputChange = () => {
     if (formSubmitted) {
       setFormSubmitted(false);
     }
   };
 
+  // Handler function for submitting the form and resetting the local state
   const handleSubmit = (id) => (event) => {
     setFormSubmitted(true);
     onSaveData(id)(event);
   };
 
-  // Display Saved button if not saved
+  // Display different Saved button based on form submission state
   let saveButton = null
   if (formSubmitted){
       saveButton = <button className="waves-effect waves-light btn brand">Saved</button>
@@ -25,6 +28,7 @@ const BadgeForm = ({ onSaveData, badge }) => {
       saveButton = <button className="waves-effect waves-light btn grey" type="submit" >Save</button>
    }
 
+  // Return markup for the form enrty for each row
   return (
     
       <form onSubmit={handleSubmit(badge.id)}>
@@ -49,6 +53,7 @@ const BadgeForm = ({ onSaveData, badge }) => {
           <div className="col s3 m3 l3" style={{marginLeft: "10px"}}>
             {saveButton}
           </div>
+          
         </div>
       </form>
     
