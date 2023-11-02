@@ -33,11 +33,12 @@ export default function Tab_BadgesByTable() {
     const handleUpdate = (updatedBadge) => {
         setBadges(badges.map(badge => {
                   if (badge.id === updatedBadge.id) {
-                    return updatedBadge // IDK if this is right
+                    return {...badge, count_onHand: updatedBadge.count_onHand, count_onOrder: updatedBadge.count_onOrder }
                   } else {
                     return badge
                   }
                 }))
+        // console.log(updatedBadge.id,updatedBadge.count_onHand, updatedBadge.count_onOrder)
     }
   
     // ----- Return Markup with loaded data -----

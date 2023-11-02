@@ -13,10 +13,11 @@ export default function BadgeRow({id, size_mm, model,color,count_onHand,count_on
         e.preventDefault()
         // onSave(id, newOHCount, newOOCount)
         console.log(newOHCount,newOOCount)
+        let req = {'id':id, 'count_onHand':newOHCount,'count_onOrder':newOOCount}
         //TODO only do put request if data is new (COULD be handled using is saved and a non-active button)
-        const result = await axios.put('http://localhost:8080/badge', {'id':id, 'count_onHand':newOHCount,'count_onOrder':newOOCount})
-        console.log(result.data)
-        onUpdate(result.data)
+        const result = await axios.put('http://localhost:8080/badge', req)
+        console.log(result)
+        onUpdate(req)
         
     }
 
@@ -27,8 +28,8 @@ export default function BadgeRow({id, size_mm, model,color,count_onHand,count_on
             <td>{color}</td>
             <td>{count_onHand}</td>
             <td>{count_onOrder}</td>
-            <td><input type="number" defaultValue={count_onHand} onChange={e => setNewOHCount(e.target.value)} /></td>
-            <td><input type="number" defaultValue={count_onOrder} onChange={e => setNewOOCount(e.target.value)} /></td>
+            <td><input className="brand-text" type="number" defaultValue={count_onHand} onChange={e => setNewOHCount(e.target.value)} /></td>
+            <td><input className="brand-text" type="number" defaultValue={count_onOrder} onChange={e => setNewOOCount(e.target.value)} /></td>
             <td><button className="waves-effect waves-light btn grey" onClick={handleSave}>Save</button></td>
         </tr>
         
