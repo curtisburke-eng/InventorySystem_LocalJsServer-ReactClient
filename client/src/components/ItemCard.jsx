@@ -32,9 +32,25 @@ export default function ItemCard({id, type, size, color, isProcessed, count_onHa
      // Display isProcessed Information
      let processedInfo = null
      if(isProcessed) {
-        processedInfo = <h4 className="center">Processed</h4>
+        switch(type) {
+            case "Box":
+            case "Tin":
+                // processedInfo = <h4 className="center">Branded</h4>
+                processedInfo = "Branded"
+                break; 
+            case "Insert":
+            case "Foam":  
+                // processedInfo = <h4 className="center">Cut</h4>
+                processedInfo = "Cut"
+                break; 
+            case "Card: Thank You":
+                processedInfo = "Written/Signed"
+                break;
+        }
+        
       } else {
-        processedInfo = <h4 className="center">Blank</h4>
+        // processedInfo = <h4 className="center">Blank</h4>
+        processedInfo = "Blank"
       }
 
     return (
@@ -43,11 +59,12 @@ export default function ItemCard({id, type, size, color, isProcessed, count_onHa
 
                 <div className="card-content white-text" key={id}>
                     <h3 className="center"> {type}</h3>
-                    <h4 className="center">{size} {color} </h4>
-                    {processedInfo}
+                    <h4 className="center">{size} {processedInfo} </h4>
+                    <h5 className="center">{color}</h5>
+                    
 
                     <div className='row'>
-                        <h4 className="center">Inventory Counts</h4>
+                        {/* <h4 className="center">Inventory</h4> */}
                         <div className="col s6 m6 l6">
                             <h5 className="center">On Hand:</h5>
                             <h5 className="center"> {count_onHand} </h5>

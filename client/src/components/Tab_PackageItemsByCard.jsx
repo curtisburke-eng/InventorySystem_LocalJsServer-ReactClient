@@ -79,7 +79,7 @@ export default function Tab_PackageItemsByCard(tabClick) {
     setError(false)
     try{
       const result = await axios.put('http://localhost:8080/item', items.find((item) => item.id === id))
-      // console.log(result.status)
+      // console.log(result.data)
       setItems(items.map(item => {
         if (item.id === id) {
           return {...item, isSaved: 1}

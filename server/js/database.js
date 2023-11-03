@@ -27,7 +27,7 @@ export async function getAllBadges() {                                          
 }
 
 export async function getAllItems() {                                             // GET all badges
-    const [rows] = await pool.query("SELECT * FROM items ORDER BY type ASC, size ASC, color ASC, isProcessed ASC;")
+    const [rows] = await pool.query("SELECT * FROM items ORDER BY type ASC, size ASC, color ASC, isProcessed DESC;")
     return rows
 }
 
