@@ -46,7 +46,7 @@ const ItemForm = ({ onSaveData, item }) => {
           <div className="col s4 m4 l4">
             <label style={{marginLeft: "10px"}}>
               On Hand:
-              <input className='brand-text' type="number" style={{marginLeft: "15px", width: "100px"}} name="newCount_onHand" 
+              <input className='brand-text' type="number" style={{marginLeft: "10px", width: "90px"}} name="newCount_onHand" 
               min='0' onChange={handleInputChange}/>
             </label>
           </div>
@@ -54,7 +54,7 @@ const ItemForm = ({ onSaveData, item }) => {
           <div className="col s4 m4 l4">
             <label style={{marginLeft: "10px"}}>
               On Order:
-              <input className='brand-text' type="number" style={{marginLeft: "15px", width: "100px"}} name="newCount_onOrder" 
+              <input className='brand-text' type="number" style={{marginLeft: "10px", width: "90px"}} name="newCount_onOrder" 
               min='0' onChange={handleInputChange}/>
             </label>
           </div>
