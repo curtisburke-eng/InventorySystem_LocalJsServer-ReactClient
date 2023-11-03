@@ -1,3 +1,4 @@
+// Get Library Functions
 import { useState, useEffect } from 'react'
 import axios from 'axios'
 
@@ -5,8 +6,8 @@ import axios from 'axios'
 import '../css/main.css'
 
 
-// Create Tab_ShippingByCard Component
-export default function Tab_ShippingByCard() {
+// Create Tab_ShippingByTable Component
+export default function Tab_PackageItemsByTable() {
     // ----- Declare vars -----
 
     // ----- Setup & Run Functions for queries -----

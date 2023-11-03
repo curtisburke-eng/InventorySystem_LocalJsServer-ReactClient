@@ -7,8 +7,8 @@ import '../css/main.css'
 import keelLogo from '../css/KEEL-logo_white_140x.png'
 import Tab_BadgesByCard from './Tab_BadgesByCard'
 import Tab_BadgesByTable from './Tab_BadgesByTable'
-import Tab_ShippingByCard from './Tab_ShippingByCard'
-import Tab_ShippingByTable from './Tab_ShippingByTable'
+import Tab_PackageItemsByCard from './Tab_PackageItemsByCard'
+import Tab_PackageItemsByTable from './Tab_PackageItemsByTable'
 
 
 // Create Main App Component
@@ -52,13 +52,13 @@ function App() {
             </li>
 
             <li className="tab">
-              <a href="#Tab_ShippingByCard" onClick={() => setClick(!click)}>
+              <a href="#Tab_PackageItemsByCard" onClick={() => setClick(!click)}>
                 Shipping Mats. (Card View)
               </a>
             </li>
 
             <li className="tab">
-              <a href="#Tab_ShippingByTable" onClick={() => setClick(!click)}>
+              <a href="#Tab_PackageItemsByTable" onClick={() => setClick(!click)}>
                 Shipping Mats. (Table View)
               </a>
             </li>
@@ -73,11 +73,11 @@ function App() {
       <section id="Tab_BadgesByTable">
         <Tab_BadgesByTable tabClick={click}/>
       </section>
-      <section id="Tab_ShippingByCard">
-        <Tab_ShippingByCard />
+      <section id="Tab_PackageItemsByCard">
+        <Tab_PackageItemsByCard />
       </section>
-      <section id="Tab_ShippingByTable">
-        <Tab_ShippingByTable />
+      <section id="Tab_PackageItemsByTable">
+        <Tab_PackageItemsByTable />
       </section>
 
     </>
