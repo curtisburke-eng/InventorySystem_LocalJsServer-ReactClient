@@ -29,7 +29,7 @@ function App() {
       <nav className="nav-extended brand">
         <div className="nav-wrapper">
           <a href="https://shopkeel.us" className="brand-logo">
-            <img src={keelLogo} className="brand-logo brand-img brand" alt="KEEL" />
+            <img src={keelLogo} className="brand-logo brand-img brand" alt="KEEL" style={{marginBottom: "20px", marginLeft: "20px"}}/>
           </a>
           
           <ul id="nav-mobile" className="center">
@@ -53,13 +53,13 @@ function App() {
 
             <li className="tab">
               <a href="#Tab_PackageItemsByCard" onClick={() => setClick(!click)}>
-                Shipping Mats. (Card View)
+                Package Items (Card View)
               </a>
             </li>
 
             <li className="tab">
               <a href="#Tab_PackageItemsByTable" onClick={() => setClick(!click)}>
-                Shipping Mats. (Table View)
+                Package Items (Table View)
               </a>
             </li>
           </ul>

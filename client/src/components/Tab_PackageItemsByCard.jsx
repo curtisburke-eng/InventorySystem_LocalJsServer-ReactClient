@@ -97,6 +97,7 @@ export default function Tab_PackageItemsByCard(tabClick) {
   return (
     <>
       {/* ----- Display Fetched data for items ----- */}
+      <h2 className="center brand-text">Package Items</h2>
       <div className="row">
         
           {/* If there is an error display this message*/ }
