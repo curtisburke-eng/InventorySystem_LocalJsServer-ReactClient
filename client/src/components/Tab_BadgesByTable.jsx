@@ -69,6 +69,7 @@ function Tab_BadgesByTable(tabClick) {
   // Return the markup for the table with badge data
   return (
     <div className="container">
+      <h2 className="center brand-text">Badges</h2>
       <table className="highlight centered brand-blue brand-text">
 
         <thead>

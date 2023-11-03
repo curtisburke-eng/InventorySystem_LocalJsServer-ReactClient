@@ -18,7 +18,7 @@ import cors from 'cors'
 server.use(cors()) // This allows access from any frontend ... not what I want
 
 // Get functions from database server
-import {getBadges, getAllBadges, getBadgesBySize, getBadgesByColor, getBadgesByModel, updateBadgeQty} from './database.js'
+import {getBadges, getAllBadges, getAllItems, getBadgesBySize, getBadgesByColor, getBadgesByModel, updateBadgeQty, updateItemQty} from './database.js'
 
 // --- Get Request Routes ---
 // GET all badges
@@ -32,6 +32,12 @@ server.get("/badges", async (req,res) => {
         const badges = await getAllBadges()
         res.send(badges)
     }
+})
+
+// GET all items
+server.get("/items", async (req,res) => {
+    const items = await getAllItems()
+    res.send(items)
 })
 
 // GET badges by size
@@ -64,6 +70,13 @@ server.put("/badge", async (req,res) => {
     const {id, count_onHand, count_onOrder} = req.body
     const badges = await updateBadgeQty(id, count_onHand,count_onOrder)
     res.status(201).send(badges)
+})
+
+// Update single item
+server.put("/item", async (req,res) => {
+    const {id, count_onHand, count_onOrder} = req.body
+    const items = await updateItemQty(id, count_onHand,count_onOrder)
+    res.status(201).send(items)
 })
 
 

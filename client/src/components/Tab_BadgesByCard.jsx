@@ -98,6 +98,7 @@ export default function Tab_BadgesByCard(tabClick) {
   return (
     <>
       {/* ----- Display Fetched data for Badges ----- */}
+      <h2 className="center brand-text">Badges</h2>
       <div className="row">
         
           {/* If there is an error display this message*/ }
