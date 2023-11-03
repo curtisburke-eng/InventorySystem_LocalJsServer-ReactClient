@@ -1,7 +1,7 @@
 // Get assets & CSS
 import '../css/main.css'
 
-export default function ItemCard({item, onDecreaseOnHand,onIncreaseOnHand,onDecreaseOnOrder,onIncreaseOnOrder, onSave}) {
+export default function ItemCard({id, type, size, color, isProcessed, count_onHand,count_onOrder, isSaved, onDecreaseOnHand,onIncreaseOnHand,onDecreaseOnOrder,onIncreaseOnOrder, onSave}) {
     const handleDecreaseOnHand = () => {
         onDecreaseOnHand(id)
     }
@@ -29,13 +29,22 @@ export default function ItemCard({item, onDecreaseOnHand,onIncreaseOnHand,onDecr
                     Saved</button>
      }
 
+     // Display isProcessed Information
+     let processedInfo = null
+     if(isProcessed) {
+        processedInfo = <h4 className="center">Processed</h4>
+      } else {
+        processedInfo = <h4 className="center">Blank</h4>
+      }
+
     return (
         <div className="col s3 m3 l3" >
             <div className="card brand-blue">
 
                 <div className="card-content white-text" key={id}>
-                    <h3 className="center"> {size_mm} MM </h3>
-                    <h4 className="center">{model} {color} </h4>
+                    <h3 className="center"> {type}</h3>
+                    <h4 className="center">{size} {color} </h4>
+                    {processedInfo}
 
                     <div className='row'>
                         <h4 className="center">Inventory Counts</h4>

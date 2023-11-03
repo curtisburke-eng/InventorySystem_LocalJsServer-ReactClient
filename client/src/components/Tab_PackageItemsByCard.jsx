@@ -6,7 +6,7 @@ import '../css/main.css'
 import ItemCard from './ItemCard'
 
 // Create Tab_ShippingByCard Component
-export default function Tab_PackageItemsByCard() {
+export default function Tab_PackageItemsByCard(tabClick) {
   // console.log("Cards rendered");
 
   // ----- Declare vars -----
@@ -111,7 +111,7 @@ export default function Tab_PackageItemsByCard() {
                 onIncreaseOnOrder={handleIncreaseOnOrder}
                 onSave={handleSave}
                 key={item.id}
-                item={item} />
+                {...item} />
             ))
           }
         
