@@ -24,8 +24,9 @@ export default function Bulk_Inventory(click) {
             </li>
       </ul>
     </div>
-    <div id="Tab_BadgesByTable" class="col s12"><Tab_BadgesByTable tabClick={click}/></div>
-    <div id="Tab_PackageItemsByTable" class="col s12"><Tab_PackageItemsByTable tabClick={click}/></div>
+    
+    <div id="Tab_BadgesByTable" className="col s12"><Tab_BadgesByTable tabClick={click}/></div>
+    <div id="Tab_PackageItemsByTable" className="col s12"><Tab_PackageItemsByTable tabClick={click}/></div>
         
     </div>
   )
