@@ -5,6 +5,8 @@ import axios from 'axios'
 // Get assets & CSS
 import '../css/main.css'
 import keelLogo from '../css/KEEL-logo_white_140x.png'
+import Workflows_Home from './Workflows_Home'
+import Bulk_Inventory from './Bulk_Inventory'
 import Tab_BadgesByCard from './Tab_BadgesByCard'
 import Tab_BadgesByTable from './Tab_BadgesByTable'
 import Tab_PackageItemsByCard from './Tab_PackageItemsByCard'
@@ -33,25 +35,25 @@ function App() {
           </a>
           
           <ul id="nav-mobile" className="center">
-            <h3 className='brand-text'>KEEL Inventory</h3>
+            <h3 className='brand-text'>MEANT FOR MORE</h3>
           </ul>
         </div>
 
         <div className="nav-content">
           <ul className="tabs tabs-transparent">
             <li className="tab">
-              <a className="brand-text" href="#Tab_BadgesByCard" onClick={() => setClick(!click)}>
-                Badges (Card View)
+              <a className="brand-text" href="#Workflows_Home" onClick={() => setClick(!click)}>
+                Workflows
               </a>
             </li>
 
             <li className="tab">
-              <a className="brand-text" href="#Tab_BadgesByTable" onClick={() => setClick(!click)}>
-                Badges (Table View)
+              <a className="brand-text" href="#Bulk_Inventory" onClick={() => setClick(!click)}>
+                Bulk Inventory
               </a>
             </li>
 
-            <li className="tab">
+            {/* <li className="tab">
               <a className="brand-text" href="#Tab_PackageItemsByCard" onClick={() => setClick(!click)}>
                 Package Items (Card View)
               </a>
@@ -61,12 +63,18 @@ function App() {
               <a className="brand-text" href="#Tab_PackageItemsByTable" onClick={() => setClick(!click)}>
                 Package Items (Table View)
               </a>
-            </li>
+            </li> */}
           </ul>
         </div>
 
       </nav>
-
+      <section id="Workflows_Home">
+        <Workflows_Home tabClick={click}/>
+      </section>
+      <section id="Bulk_Inventory">
+        <Bulk_Inventory tabClick={click}/>
+      </section>
+{/*       
       <section id="Tab_BadgesByCard">
         <Tab_BadgesByCard tabClick={click}/>
       </section>
@@ -78,7 +86,7 @@ function App() {
       </section>
       <section id="Tab_PackageItemsByTable">
         <Tab_PackageItemsByTable />
-      </section>
+      </section> */}
 
     </>
   )
