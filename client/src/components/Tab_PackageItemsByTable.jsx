@@ -96,7 +96,7 @@ function Tab_PackageItemsByTable(tabClick) {
 
   // Return the markup for the table with item data
   return (
-    <div className="container">
+    <>
         <h2 className="center brand-text">Package Items</h2>
       <table className="highlight centered brand-blue white-text">
 
@@ -132,7 +132,7 @@ function Tab_PackageItemsByTable(tabClick) {
         </tbody>
 
       </table>
-    </div>
+    </>
   );
 }
 
