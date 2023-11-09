@@ -22,10 +22,10 @@ export default function ItemCard({id, type, size, color, isProcessed, count_onHa
     // Display Saved button if not saved
     let saveButton = null
     if(isSaved == 0) {
-        saveButton = <button className="waves-effect waves-light btn grey" onClick={handleSave}>
+        saveButton = <button className="waves-effect waves-light btn brand brand-text" onClick={handleSave}>
                     Save</button>
      } else {
-        saveButton = <button className="waves-effect waves-light btn brand">
+        saveButton = <button className="waves-effect waves-light btn brand-blue white-text">
                     Saved</button>
      }
 
@@ -73,9 +73,9 @@ export default function ItemCard({id, type, size, color, isProcessed, count_onHa
                             <div className="row">
                                 <div className="col s2 m2 l2"></div>
                                 <div className="col center s8 m8 l8">
-                                    <button className="left waves-effect waves-light btn-floating brand"
+                                    <button className="left waves-effect waves-light btn-floating brand brand-text"
                                     onClick={handleDecreaseOnHand}>-</button>
-                                    <button className="right waves-effect waves-light btn-floating brand"
+                                    <button className="right waves-effect waves-light btn-floating brand brand-text"
                                     onClick={handleIncreaseOnHand}>+</button>
                                 </div>
                                 <div className="col s2 m2 l2"></div>
@@ -90,9 +90,9 @@ export default function ItemCard({id, type, size, color, isProcessed, count_onHa
                             <div className="row">
                                 <div className="col s2 m2 l2"></div>
                                 <div className="col center s8 m8 l8">
-                                <button className="left waves-effect waves-light btn-floating brand"
+                                <button className="left waves-effect waves-light btn-floating brand brand-text"
                                     onClick={handleDecreaseOnOrder}>-</button>
-                                    <button className="right waves-effect waves-light btn-floating brand"
+                                    <button className="right waves-effect waves-light btn-floating brand brand-text"
                                     onClick={handleIncreaseOnOrder}>+</button>
                                 </div>
                                 <div className="col s2 m2 l2"></div>

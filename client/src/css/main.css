@@ -9088,7 +9088,7 @@ input[type=range]::-ms-thumb {
 
 /* Set the BRAND specific colors */
 .brand {
-  background: #0A0A0A !important;
+  background: #eceff1 !important;
 }
 .brand-blue{
   background: #002244 !important;
@@ -9098,5 +9098,5 @@ input[type=range]::-ms-thumb {
   height: 80px;
 }
 .brand-text {
-  color: #FFFFFF !important;
+  color: #0A0A0A !important;
 }
