@@ -1,9 +1,16 @@
 
 // Get assets & CSS
 import '../css/main.css'
-import $ from "jquery"
 
 import Workflow_CreatePackages from './Workflow_CreatePackages'
+
+// Import icons
+import HomeIcon from '@mui/icons-material/Home';
+import ArrowOutwardIcon from '@mui/icons-material/ArrowOutward';
+import CallReceivedIcon from '@mui/icons-material/CallReceived';
+import InventoryIcon from '@mui/icons-material/Inventory';
+import CropFreeIcon from '@mui/icons-material/CropFree';
+import LocalShippingIcon from '@mui/icons-material/LocalShipping';
 
 // Create Tab_ShippingByCard Component
 export default function Workflows_Home(tabClick) {
@@ -16,33 +23,34 @@ export default function Workflows_Home(tabClick) {
   // ----- Return Markup with loaded data -----
   return (
     <>
-    <div className="row">
+    < div className="container">
+      {/* ----- Display Fetched data for items ----- */}
+      <h2 className="brand-text">Workflows</h2>
+
+      <div className="row">
       <ul id="Workflow-tabs" className="tabs tabs-transparent">
             <li className="tab">
-              <a className="active brand-text" href="#Workflow_Options">H</a>
+              <a className="active brand-text" href="#Workflow_Options"><HomeIcon /></a>
             </li>
             <li className="tab">
-              <a className="brand-text" href="#Workflow_OrderInventory">1</a>
+              <a className="brand-text" href="#Workflow_OrderInventory"><ArrowOutwardIcon /></a>
             </li>
             <li className="tab">
-              <a className="brand-text" href="#Workflow_RecieveInventory">2</a>
+              <a className="brand-text" href="#Workflow_RecieveInventory"><CallReceivedIcon /></a>
             </li>
             <li className="tab">
-              <a className="brand-text" href="#Workflow_CreatePackages">3</a>
+              <a className="brand-text" href="#Workflow_CreatePackages"><InventoryIcon /></a>
             </li>
             <li className="tab">
-              <a className="brand-text" href="#Workflow_CreateTins">4</a>
+              <a className="brand-text" href="#Workflow_CreateTins"><CropFreeIcon /></a>
             </li>
             <li className="tab">
-              <a className="brand-text" href="#Workflow_FulfillOrders">5</a>
+              <a className="brand-text" href="#Workflow_FulfillOrders"><LocalShippingIcon /></a>
             </li>
       </ul>
     </div>
-    
 
-    < div id="Workflow_Options" className="container">
-      {/* ----- Display Fetched data for items ----- */}
-      <h2 className="brand-text">Workflows</h2>
+    < div id="Workflow_Options" > {/* This could become its own component, but the buttons would need to pass back to Workflows_home like they do in the Tabs_byCard files */}
       <ul className="collapsible">
 
 
@@ -90,10 +98,13 @@ export default function Workflows_Home(tabClick) {
 
     </ul>
 
-    </div>
+    </div> {/* End of Tab Workflow_Options */}
 
     <div id="Workflow_CreatePackages" className="col s12"><Workflow_CreatePackages tabClick={tabClick}/></div>
-   
+
+
+    </div>{/* end of container  */}
+
     </>
   )
 }
