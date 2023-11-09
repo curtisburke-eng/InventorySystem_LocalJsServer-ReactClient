@@ -32,9 +32,9 @@ const ItemForm = ({ onSaveData, item }) => {
   // Display different Saved button based on form submission state
   let saveButton = null
   if (formSubmitted){
-      saveButton = <button className="waves-effect waves-light btn brand">Saved</button>
+      saveButton = <button className="waves-effect waves-light btn brand-blue white-text">Saved</button>
    } else {
-      saveButton = <button className="waves-effect waves-light btn grey" type="submit" >Save</button>
+      saveButton = <button className="waves-effect waves-light btn brand brand-text" type="submit" >Save</button>
    }
 
   // Return markup for the form enrty for each row

@@ -26,7 +26,7 @@ function App() {
     <>
         {/* ----- Navbar with Logo & Title ----- */}
 
-      <nav className="nav-extended brand">
+      <nav className="nav-extended brand z-depth-0">
         <div className="nav-wrapper">
           <a href="https://shopkeel.us" className="brand-logo">
             <img src={keelLogo} className="brand-logo brand-img brand" alt="KEEL" style={{marginBottom: "20px", marginLeft: "20px"}}/>
@@ -39,26 +39,26 @@ function App() {
 
         <div className="nav-content">
           <ul className="tabs tabs-transparent">
-            <li className="tab active">
-              <a href="#Tab_BadgesByCard" onClick={() => setClick(!click)}>
+            <li className="tab">
+              <a className="brand-text" href="#Tab_BadgesByCard" onClick={() => setClick(!click)}>
                 Badges (Card View)
               </a>
             </li>
 
             <li className="tab">
-              <a href="#Tab_BadgesByTable" onClick={() => setClick(!click)}>
+              <a className="brand-text" href="#Tab_BadgesByTable" onClick={() => setClick(!click)}>
                 Badges (Table View)
               </a>
             </li>
 
             <li className="tab">
-              <a href="#Tab_PackageItemsByCard" onClick={() => setClick(!click)}>
+              <a className="brand-text" href="#Tab_PackageItemsByCard" onClick={() => setClick(!click)}>
                 Package Items (Card View)
               </a>
             </li>
 
             <li className="tab">
-              <a href="#Tab_PackageItemsByTable" onClick={() => setClick(!click)}>
+              <a className="brand-text" href="#Tab_PackageItemsByTable" onClick={() => setClick(!click)}>
                 Package Items (Table View)
               </a>
             </li>

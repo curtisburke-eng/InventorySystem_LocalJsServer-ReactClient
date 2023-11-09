@@ -32,9 +32,9 @@ const BadgeForm = ({ onSaveData, badge }) => {
   // Display different Saved button based on form submission state
   let saveButton = null
   if (formSubmitted){
-      saveButton = <button className="waves-effect waves-light btn brand">Saved</button>
+      saveButton = <button className="waves-effect waves-light btn brand-blue white-text">Saved</button>
    } else {
-      saveButton = <button className="waves-effect waves-light btn grey" type="submit" >Save</button>
+      saveButton = <button className="waves-effect waves-light btn brand brand-text" type="submit" >Save</button>
    }
 
   // Return markup for the form enrty for each row
@@ -46,7 +46,7 @@ const BadgeForm = ({ onSaveData, badge }) => {
           <div className="col s4 m4 l4">
             <label style={{marginLeft: "10px"}}>
               On Hand:
-              <input className='brand-text' type="number" style={{marginLeft: "15px", width: "100px"}} name="newCount_onHand" 
+              <input className='white-text' type="number" style={{marginLeft: "15px", width: "100px"}} name="newCount_onHand" 
               min='0' onChange={handleInputChange}/>
             </label>
           </div>
@@ -54,7 +54,7 @@ const BadgeForm = ({ onSaveData, badge }) => {
           <div className="col s4 m4 l4">
             <label style={{marginLeft: "10px"}}>
               On Order:
-              <input className='brand-text' type="number" style={{marginLeft: "15px", width: "100px"}} name="newCount_onOrder" 
+              <input className='white-text' type="number" style={{marginLeft: "15px", width: "100px"}} name="newCount_onOrder" 
               min='0' onChange={handleInputChange}/>
             </label>
           </div>
